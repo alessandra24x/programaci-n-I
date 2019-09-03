@@ -15,13 +15,14 @@
 int calculaNumMaximoyNumMinimo(int cantidadNumeros, int *maximo, int *minimo);
 int main(void)
 {
-	 int maximo;
-	 int minimo;
-	 if(calculaNumMaximoyNumMinimo(CANT_ITERA, &maximo, &minimo) == 0)
-	 {
-	 printf("\nNumero Maximo = %d\n", maximo);
-	 printf("\nNumero Minimo = %d\n", minimo);
-	 }
+		setbuf(stdout, NULL);
+int maximo;
+int minimo;
+if(calculaNumMaximoyNumMinimo(CANT_ITERA, &maximo, &minimo) == 0)
+{
+	printf("\nNumero Maximo = %d\n", maximo);
+	printf("\nNumero Minimo = %d\n", minimo);
+}
 	 return 0;
 }
 
@@ -35,7 +36,7 @@ int calculaNumMaximoyNumMinimo(int cantidadNumeros, int *maximo, int *minimo)
 	if(cantidadNumeros > 0 && *maximo != NULL && *minimo != NULL)
 	{
 		for(i = 0; i <= cantidadNumeros; i++) {
-			printf("Ingrese un numero: \n");
+			printf("Ingrese un numero:\n");
 			scanf("%d",&numero);
 			if(i == 0 || numero > numMaximo)
 			{
