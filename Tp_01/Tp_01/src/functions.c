@@ -39,5 +39,4 @@ float factorialB(float b) {
 	        factorial = factorial * i;
 	    }
 	    return factorial;
-
-
+}
