@@ -12,7 +12,7 @@
 #include <stdio_ext.h>
 #include <stdlib.h>
 
-#define QTY_EDADES 5
+#define QTY_EDADES 12
 
 int initArrayInt(int *pArray , int limite, int valor);
 int printArrayInt(int *pArray , int limite);
@@ -31,18 +31,20 @@ int getInt(	int *pResultado,
 		int reintentos);
 int printNumeroMinimoyMaximo(int *pArray , int limite);
 int printPromedio(int *pArray , int limite);
+int printSuma(int *pArray, int limite);
 
 
 int main(void)
 {
-	int edades[QTY_EDADES] = {100,200,300,400,500};
-	int cantidadUsuario;
-	initArrayInt(edades,QTY_EDADES,22);
-	cantidadUsuario = getArrayInt(edades,QTY_EDADES,"Edad?\n","Error\n",0,200,2);
+	int edades[QTY_EDADES] = {12,25,32,11,56,65,21,32,33,38,14,45};
+	//int cantidadUsuario;
+	//initArrayInt(edades,QTY_EDADES,22);
+	//cantidadUsuario = getArrayInt(edades,QTY_EDADES,"Edad?\n","Error\n",0,200,2);
 
-	printArrayInt(edades,cantidadUsuario);
-	printNumeroMinimoyMaximo(edades, cantidadUsuario);
-	printPromedio(edades, cantidadUsuario);
+	//printArrayInt(edades,cantidadUsuario);
+	printNumeroMinimoyMaximo(edades, QTY_EDADES);
+	printPromedio(edades, QTY_EDADES);
+	printSuma(edades, QTY_EDADES);
 	return EXIT_SUCCESS;
 }
 
@@ -153,13 +155,13 @@ int printNumeroMinimoyMaximo(int *pArray , int limite)
 	printf("\nDEBUG\n");
 	if(pArray != NULL)
 	{
-		for(i=0;i<limite;i++)
+		for(i=1;i<limite;i++)
 		{
-			if(pArray[i+1] < numMinimo) {
+			if(pArray[i] < numMinimo) {
 				numMinimo = pArray[i];
 
 			}
-			if(pArray[i+1] > numMaximo) {
+			if(pArray[i] > numMaximo) {
 				numMaximo = pArray[i];
 			}
 
@@ -178,7 +180,6 @@ int printPromedio(int *pArray , int limite)
 	int acumulador = 0;
 	int promedio;
 	int i;
-	printf("\nDEBUG\n");
 	if(pArray != NULL)
 	{
 		for(i=0;i<limite;i++)
@@ -187,7 +188,25 @@ int printPromedio(int *pArray , int limite)
 
 		}
 		promedio = acumulador / limite;
-		printf("Promedio:\n%i",promedio);
+		printf("\nPromedio:\n%i",promedio);
+		retorno = 0;
+	}
+	return retorno;
+}
+
+int printSuma(int *pArray, int limite)
+{
+	int retorno = -1;
+	int suma = 0;
+	int i;
+	if(pArray != NULL)
+	{
+		for(i=0;i<limite;i++)
+		{
+			suma += pArray[i];
+
+		}
+		printf("\nSuma:\n%i",suma);
 		retorno = 0;
 	}
 	return retorno;
