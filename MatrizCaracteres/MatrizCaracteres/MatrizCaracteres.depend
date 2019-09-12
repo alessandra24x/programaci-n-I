@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1567825168 source:e:\yxs\a-utn\tsp038-programacion i-laboratorio i\clases\clase 7\matrizcaracteres\matrizcaracteres\utn_array.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"UTN_Inputs.h"
+
+1567802438 e:\yxs\a-utn\tsp038-programacion i-laboratorio i\clases\clase 7\matrizcaracteres\matrizcaracteres\utn_inputs.h
+
+1567798922 source:e:\yxs\a-utn\tsp038-programacion i-laboratorio i\clases\clase 7\matrizcaracteres\matrizcaracteres\utn_inputs.c
+	<stdio.h>
+	<stdlib.h>
+
+1567807186 source:e:\yxs\a-utn\tsp038-programacion i-laboratorio i\clases\clase 7\matrizcaracteres\matrizcaracteres\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"UTN_Array.h"
+	"UTN_Inputs.h"
+
+1567806886 e:\yxs\a-utn\tsp038-programacion i-laboratorio i\clases\clase 7\matrizcaracteres\matrizcaracteres\utn_array.h
+
+1567895460 source:d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 7\matrizcaracteres\matrizcaracteres\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"UTN_Array.h"
+	"UTN_Inputs.h"
+
+1567806888 d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 7\matrizcaracteres\matrizcaracteres\utn_array.h
+
+1567802440 d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 7\matrizcaracteres\matrizcaracteres\utn_inputs.h
+
+1567798924 source:d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 7\matrizcaracteres\matrizcaracteres\utn_inputs.c
+	<stdio.h>
+	<stdlib.h>
+
+1567895359 source:d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 7\matrizcaracteres\matrizcaracteres\utn_array.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"UTN_Inputs.h"
+
+1567798924 source:c:\users\alumno\desktop\matrizcaracteres\matrizcaracteres\utn_inputs.c
+	<stdio.h>
+	<stdlib.h>
+
+1568224995 source:c:\users\alumno\desktop\matrizcaracteres\matrizcaracteres\utn_array.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"UTN_Inputs.h"
+
+1567802440 c:\users\alumno\desktop\matrizcaracteres\matrizcaracteres\utn_inputs.h
+

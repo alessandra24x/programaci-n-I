@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1567200089 source:e:\yxs\a-utn\tsp038-programacion i-laboratorio i\clases\clase 4\clase4ejerciciostring\ejercicioclase4\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
