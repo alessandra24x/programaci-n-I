@@ -9,7 +9,8 @@ typedef struct
   char name[20];
   int dni;
   int age;
-  //int isEmpty = 0;
+  int isEmpty = 0;
+  int id = 0;
 }Student;
  
  
@@ -41,9 +42,9 @@ int main() {
                     //isEmpty++;
                 }
                 break;
-            /*case 2:
-                getInt(&dniaux, "ingrese dni: ", "ingrese un dni valido", 1, 100000000, 3); //pido el dni a dar de baja
-                i = buscarPorDni(dniaux, array);
+            case 2:
+                getInt(&id, "ingrese id: ", "ingrese un id valido", 1, 1000, 3);
+                i = buscarLibre(isEmptyAux, array);
                 
                 if (i == -1)
                 {
@@ -52,9 +53,10 @@ int main() {
                 }
                 else
                 {
-                        
+                	array[i].isEmpty = 1;
+                    return 0;
                 }
-                break;*/
+                break;
             case 3:
                 getInt(&dniaux, "ingrese dni: ", "ingrese un dni valido", 1, 100000000, 3);  //Se pide el dni a modificar
                 i = buscarPorDni(dniaux, array);
@@ -136,7 +138,7 @@ return indice;   //si no lo encuentra nunca en la recorrida retorna -1 que es el
  
 }
 
-/*int buscarLibre(int isEmpty, Student * alumnos)
+int buscarLibre(int isEmpty, Student * alumnos)
 {
 int i, indice = -1;
  
@@ -146,7 +148,7 @@ for (i = 0 ; i < MAXRECORDS ; i++)
  
 return indice;   //si no lo encontro nunca en la recorrida retorna -1 que es el valor original
  
-}*/
+}
  
 void mostrarAlumnos ( Student * alumnos)
 {
