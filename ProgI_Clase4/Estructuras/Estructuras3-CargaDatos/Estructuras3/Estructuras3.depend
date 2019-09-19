@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1554380107 source:e:\yxs\a-utn\ejercicios\estructuras\estructuras\estructuras3-cargadatos\estructuras3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

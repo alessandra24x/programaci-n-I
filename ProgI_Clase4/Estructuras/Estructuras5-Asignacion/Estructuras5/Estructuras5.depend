@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1554643260 source:e:\yxs\a-utn\ejercicios\estructuras\estructuras\estructuras5-asignacion\estructuras5\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

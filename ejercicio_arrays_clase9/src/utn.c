@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 int getInt(	int *pResultado,
 		char *pMensaje,
 		char *pMensajeError,
@@ -6,7 +10,7 @@ int getInt(	int *pResultado,
 		int reintentos)
 {
 	int retorno = 0;
-	int i,j;
+	int j;
 	char input[50];
 	int buffer;
 	int length;
