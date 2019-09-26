@@ -1,0 +1,193 @@
+# depslib dependency file v1.0
+1556427203 source:f:\cami\estudios\facultad\programación\01 programacion_laboratorio_1\repositorio\progamacion_laboratorio1\bibliotecas\entidades\main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"entidades.h"
+
+1556426217 source:f:\cami\estudios\facultad\programación\01 programacion_laboratorio_1\repositorio\progamacion_laboratorio1\bibliotecas\entidades\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1556483107 f:\cami\estudios\facultad\programación\01 programacion_laboratorio_1\repositorio\progamacion_laboratorio1\bibliotecas\entidades\utn.h
+
+1556480949 source:f:\cami\estudios\facultad\programación\01 programacion_laboratorio_1\repositorio\progamacion_laboratorio1\bibliotecas\entidades\entidades.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"entidades.h"
+
+1556480936 f:\cami\estudios\facultad\programación\01 programacion_laboratorio_1\repositorio\progamacion_laboratorio1\bibliotecas\entidades\entidades.h
+
+1556427203 source:f:\cami\estudios\facultad\programación\01 programacion_laboratorio_1\repositorio\progamacion_laboratorio1\bibliotecas\biblioteca entidades\main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"entidades.h"
+
+1556483107 f:\cami\estudios\facultad\programación\01 programacion_laboratorio_1\repositorio\progamacion_laboratorio1\bibliotecas\biblioteca entidades\utn.h
+
+1557013703 f:\cami\estudios\facultad\programación\01 programacion_laboratorio_1\repositorio\progamacion_laboratorio1\bibliotecas\biblioteca entidades\entidades.h
+
+1556483094 source:f:\cami\estudios\facultad\programación\01 programacion_laboratorio_1\repositorio\progamacion_laboratorio1\bibliotecas\biblioteca entidades\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1557013694 source:f:\cami\estudios\facultad\programación\01 programacion_laboratorio_1\repositorio\progamacion_laboratorio1\bibliotecas\biblioteca entidades\entidades.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"entidades.h"
+
+1557001129 source:f:\cami\estudios\facultad\programación\01 programacion_laboratorio_1\repositorio\progamacion_laboratorio1\bibliotecas\biblioteca entidades\informes.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"entidades.h"
+
+1557276041 source:/home/mauro/Descargas/FANTASMA/entidades.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"entidades.h"
+
+1557276041 /home/mauro/Descargas/FANTASMA/utn.h
+
+1557276041 /home/mauro/Descargas/FANTASMA/entidades.h
+
+1557344320 source:/home/mauro/Descargas/FANTASMA/informes.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"fantasma.h"
+
+1557344132 source:/home/mauro/Descargas/FANTASMA/main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"fantasma.h"
+
+1557344877 source:/home/mauro/Descargas/FANTASMA/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1557344437 source:/home/mauro/Descargas/FANTASMA/fantasma.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"fantasma.h"
+
+1557343987 /home/mauro/Descargas/FANTASMA/fantasma.h
+
+1569019064 source:e:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante\estudiante\estudiante.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"estudiante.h"
+
+1557276042 e:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante\estudiante\utn.h
+
+1569016522 e:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante\estudiante\estudiante.h
+
+1569027548 source:d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante\estudiante\estudiante.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"estudiante.h"
+
+1557276042 d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante\estudiante\utn.h
+
+1569016522 d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante\estudiante\estudiante.h
+
+1569019228 source:d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante\estudiante\informes.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"estudiante.h"
+
+1569028126 source:d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante\estudiante\main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"estudiante.h"
+
+1557344918 source:d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante\estudiante\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1569019228 source:d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante - carrera\estudiante\informes.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"estudiante.h"
+
+1557276042 d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante - carrera\estudiante\utn.h
+
+1569245025 d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante - carrera\estudiante\estudiante.h
+
+1557344918 source:d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante - carrera\estudiante\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1569245183 source:d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante - carrera\estudiante\estudiante.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"estudiante.h"
+
+1569245279 source:d:\a-utn\tsp038-programacion i-laboratorio i\clases\clase 9\estudiante - carrera\estudiante\main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"estudiante.h"
+
+1569245646 source:c:\users\alumno\desktop\estudiante - carrera\estudiante\estudiante.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"estudiante.h"
+
+1557276042 c:\users\alumno\desktop\estudiante - carrera\estudiante\utn.h
+
+1569245026 c:\users\alumno\desktop\estudiante - carrera\estudiante\estudiante.h
+
+1569019228 source:c:\users\alumno\desktop\estudiante - carrera\estudiante\informes.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"estudiante.h"
+
+1557344918 source:c:\users\alumno\desktop\estudiante - carrera\estudiante\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+

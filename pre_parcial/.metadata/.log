@@ -1,0 +1,67 @@
+!SESSION 2019-09-26 18:52:01.362 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_AR
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.core 1 0 2019-09-26 18:52:48.269
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.launchbar.core 2 0 2019-09-26 18:52:56.490
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2019-09-26 18:52:56.490
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType
+
+!ENTRY org.eclipse.core.resources 4 77 2019-09-26 18:53:44.667
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2019-09-26 18:53:44.668
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2019-09-26 18:53:44.668
+!MESSAGE /home/alumno/Descargas/Alessandra/programaci-n-I/pre_parcial overlaps the workspace location: /home/alumno/Descargas/Alessandra/programaci-n-I/pre_parcial
+
+!ENTRY org.eclipse.core.resources 4 77 2019-09-26 18:54:51.560
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2019-09-26 18:54:51.560
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2019-09-26 18:54:51.560
+!MESSAGE /home/alumno/Descargas/Alessandra/programaci-n-I/pre_parcial overlaps the workspace location: /home/alumno/Descargas/Alessandra/programaci-n-I/pre_parcial
+
+!ENTRY org.eclipse.core.resources 4 77 2019-09-26 18:57:27.478
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2019-09-26 18:57:27.478
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2019-09-26 18:57:27.478
+!MESSAGE /home/alumno/Descargas/Alessandra/programaci-n-I/pre_parcial overlaps the workspace location: /home/alumno/Descargas/Alessandra/programaci-n-I/pre_parcial
+
+!ENTRY org.eclipse.core.resources 4 77 2019-09-26 18:58:12.988
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2019-09-26 18:58:12.989
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2019-09-26 18:58:12.989
+!MESSAGE /home/alumno/Descargas/Alessandra/programaci-n-I/pre_parcial overlaps the workspace location: /home/alumno/Descargas/Alessandra/programaci-n-I/pre_parcial
+
+!ENTRY org.eclipse.core.resources 4 77 2019-09-26 19:00:43.778
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2019-09-26 19:00:43.778
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2019-09-26 19:00:43.778
+!MESSAGE /home/alumno/Descargas/Alessandra/programaci-n-I/pre_parcial overlaps the workspace location: /home/alumno/Descargas/Alessandra/programaci-n-I/pre_parcial
+!SESSION 2019-09-26 19:03:24.661 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_AR
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.core 1 0 2019-09-26 19:05:05.677
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.launchbar.core 2 0 2019-09-26 19:05:09.423
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2019-09-26 19:05:09.423
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType
