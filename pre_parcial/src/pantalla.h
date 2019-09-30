@@ -6,7 +6,7 @@ typedef struct {
     int idPantalla;
     char tipo[TEXT_TIPO];
     char nombre[TEXT_SIZE];
-    int precioPorDia;
+    float precioPorDia;
     char direccion;
     int isEmpty;
 }Pantalla;

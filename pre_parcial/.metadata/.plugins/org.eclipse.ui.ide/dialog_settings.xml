@@ -5,9 +5,10 @@
 	</list>
 	<section name="ExternalProjectImportWizard">
 		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
-		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\alejr\OneDrive\Documentos\C\programaci-n-I\programaci-n-I\pre_parcial"/>
 			<item value="/home/alumno/Descargas/Alessandra/programaci-n-I/pre_parcial"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
