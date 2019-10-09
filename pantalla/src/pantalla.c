@@ -125,7 +125,7 @@ int pantalla_alta(Pantalla array[], int size, int* contadorID) {
             (*contadorID)++;
             array[posicion].idPantalla = *contadorID;
             array[posicion].isEmpty = 1;
-            utn_getTexto("Tipo Pantalla\n: ","\nError Tipo Pantalla",1,TEXT_TIPO,2,array[posicion].tipo);
+            utn_getTexto("Tipo Pantalla\n: ","\nError Tipo Pantalla",1,TEXT_TIPO,2,array[posicion].direccion);
             utn_getName("Nombre \n: ","\nError Nombre",1,TEXT_SIZE,2,array[posicion].nombre);
             utn_getTexto("Calle\n: ","\nError Calle",1,TEXT_SIZE,2,array[posicion].direccion);
             utn_getFloat("\nPrecio x Dia: ","\nError Precio",1,sizeof(float),0,1,1,&array[posicion].precioPorDia);
@@ -222,14 +222,6 @@ int pantalla_modificar(Pantalla array[], int sizeArray) {
     return retorno;
 }
 
-//Ordenar
-/** \brief Ordena por campo XXXXX los elementos de un array
-* \param array pantalla Array de pantalla
-* \param size int Tamaño del array
-* \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se ordena exitosamente
-*
-*/
-
 int pantalla_ordenarPorString(Pantalla array[],int size) {
     int retorno = -1;
     int i, j;
@@ -262,12 +254,34 @@ int pantalla_ordenarPorString(Pantalla array[],int size) {
             array[j + 1].idPantalla=bufferId;                                        //cambiar campo id
             array[j + 1].isEmpty=bufferIsEmpty;
             strcpy(array[j + 1].nombre,bufferNombre);                                                        //cambiar campo varInt
-            array[j + 1].precioPorDia=bufferPrecioPorDia;                                                    //cambiar campo varFloat
+            array[j + 1].precioPorDia=bufferPrecioPorDia;                                                   //cambiar campo varFloat
+                                                  //cambiar campo varFloat
             strcpy(array[j + 1].direccion,bufferDireccion);                                  //cambiar campo varLongString
         }
         retorno=0;
     }
     return retorno;
+}
+
+int publicidad_ordenarPorCuit(Publicidad array[],int size) {
+  int retorno = -1;
+  int i, j;
+  Publicidad bufferCuit;
+
+  if(array != NULL && size >= 0) {
+    for(i = 0; i < size; i++) {
+      for(j = i+1; j < size; j++) {
+        if(strcmp(array[i].cuit, array[j].cuit) > 0) {
+          bufferCuit = array[i];
+          array[i] = array[j];
+          array[j] = bufferCuit;
+          }
+        }
+      }
+      retorno = 0;
+    }
+  return retorno;
+
 }
 
 int pantalla_listar(Pantalla array[], int size) {
@@ -296,7 +310,7 @@ int publicidad_listar(Publicidad array[], int size) {
             if(array[i].isEmpty == 0)
                 continue;
             else
-            printf("\n C.U.I.T: %s\n ID Pantalla: %d\n Cant. Dias: %d\n Archivo: %s",
+            printf("\n C.U.I.T: %s\n ID Pantalla: %d\n Cant. Dias: %d\n Archivo: %s\n",
                    array[i].cuit, array[i].idPantalla,array[i].cantDias,array[i].archivo);
                 //printf("\n ID: %d\n varInt: %d\n varFloat: %f\n varString: %s\n varLongString: %s",
                 //       array[i].idUnico,array[i].varInt,array[i].varFloat,array[i].varString,array[i].varLongString);
@@ -315,7 +329,7 @@ int publicidad_listarPorCuit(Publicidad array[],int size,char* aCuit) {
                 continue;
             else
             if(strcmp(array[i].cuit,aCuit) == 0) {
-                    printf("\n C.U.I.T: %s\n ID Pantalla: %d\n Cant. Dias: %d\n Archivo: %s",
+                    printf("\n C.U.I.T: %s\n ID Pantalla: %d\n Cant. Dias: %d\n Archivo: %s\n",
                      array[i].cuit, array[i].idPantalla,array[i].cantDias,array[i].archivo);
                 }
         }
@@ -354,6 +368,7 @@ int publicidad_modificar(Publicidad array[], int sizeArray) {
 int publicidad_consultaFacturacion(Pantalla arrayPantalla[],int sizePantalla,Publicidad arrayPublicidad[],int sizePublicidad) {
     int retorno = -1;
     int posicion;
+    int contadorPublicacionesPorCuit = 0;
     //int posicionId;
     //int idPantalla;
     char vCuit[TEXT_CUIT];
@@ -363,27 +378,49 @@ int publicidad_consultaFacturacion(Pantalla arrayPantalla[],int sizePantalla,Pub
         if(publicidad_buscarCUIT(arrayPublicidad,sizePublicidad,vCuit,&posicion) == -1) {
             printf("\nNo existe este CUIT");                                                          //cambiar si no se busca por ID
         } else {
-            publicidad_calcularFacturacion(arrayPantalla, sizePantalla, arrayPublicidad, sizePublicidad,vCuit);
+            publicidad_calcularFacturacion(arrayPantalla, sizePantalla, arrayPublicidad, sizePublicidad,vCuit, &contadorPublicacionesPorCuit);
                 retorno = 0;
         }
     }
     return retorno;
 }
 
-int publicidad_calcularFacturacion(Pantalla arrayPantalla[],int sizePantalla,Publicidad arrayPublicidad[],int sizePublicidad,char* aCuit) {
-   int retorno = -1;
+int publicidad_calcularFacturacion(Pantalla arrayPantalla[],int sizePantalla,Publicidad arrayPublicidad[],int sizePublicidad,char* aCuit, int *contadorPublicaciones) {
+    int retorno = -1;
     int i;
     int total;
     int posicionPantalla;
+    int aux = 0;
 
+  if(arrayPublicidad !=NULL && sizePublicidad > 0) {
     for(i = 0; i < sizePublicidad; i++) {
         if(strcmp(arrayPublicidad[i].cuit,aCuit) == 0) {
+            aux++;
             pantalla_buscarID(arrayPantalla, sizePantalla,arrayPublicidad[i].idPantalla,&posicionPantalla);
             total = arrayPublicidad[i].cantDias  * arrayPantalla[posicionPantalla].precioPorDia;
 
-            printf("\nPagar %d por pantalla %d ", total, arrayPublicidad[i].idPantalla);
+            printf("\nPagar %d por pantalla %d ",total, arrayPublicidad[i].idPantalla);
             retorno = 0;
         }
     }
+  }
+    *contadorPublicaciones = aux;
     return retorno;
+}
+
+void setPantalla(Pantalla arrayPantalla[], int buscarEmpty, int idPantallAux, char tipoAux[], char nombreAux[], float precioPorDiaAux, char direccionAux[]) {
+  arrayPantalla[buscarEmpty].idPantalla = idPantallAux;
+  strcpy(arrayPantalla[buscarEmpty].tipo, tipoAux);
+  strcpy(arrayPantalla[buscarEmpty].nombre, nombreAux);
+  arrayPantalla[buscarEmpty].precioPorDia = precioPorDiaAux;
+  strcpy(arrayPantalla[buscarEmpty].direccion, direccionAux);
+  arrayPantalla[buscarEmpty].isEmpty = 1;
+}
+
+void setPublicidad(Publicidad arrayPublicidad[], int buscarEmpty,char cuitAux[],int idPantallaAux, int cantDiasAux, char archivoAux[]) {
+  strcpy(arrayPublicidad[buscarEmpty].cuit, cuitAux);
+  arrayPublicidad[buscarEmpty].idPantalla = idPantallaAux;
+  arrayPublicidad[buscarEmpty].cantDias = cantDiasAux;
+  strcpy(arrayPublicidad[buscarEmpty].archivo, archivoAux);
+  arrayPublicidad[buscarEmpty].isEmpty = 1;
 }

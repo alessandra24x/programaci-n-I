@@ -1,6 +1,12 @@
 #define TEXT_SIZE 20
 #define TEXT_TIPO 4
 #define TEXT_CUIT 20
+#define QTY_TIPO 20
+
+typedef struct {
+  char cuit[TEXT_CUIT];
+  int importe;
+}Cliente;
 
 typedef struct {
     int idPantalla;
@@ -37,5 +43,8 @@ int publicidad_listar(Publicidad array[], int size);
 int publicidad_listarPorCuit(Publicidad array[],int size,char* aCuit);
 int publicidad_modificar(Publicidad array[], int sizeArray);
 int publicidad_consultaFacturacion(Pantalla arrayPantalla[],int sizePantalla,Publicidad arrayPublicidad[],int sizePublicidad);
-int publicidad_calcularFacturacion(Pantalla arrayPantalla[],int sizePantalla,Publicidad arrayPublicidad[],int sizePublicidad,char* aCuit);
+int publicidad_calcularFacturacion(Pantalla arrayPantalla[],int sizePantalla,Publicidad arrayPublicidad[],int sizePublicidad,char* aCuit, int *contadorPublicaciones);
+int publicidad_ordenarPorCuit(Publicidad array[],int size);
 
+void setPantalla(Pantalla arrayPantalla[], int buscarEmpty, int idPantallaAux, char tipoAux[], char nombreAux[], float precioPorDiaAux, char direccionAux[]);
+void setPublicidad(Publicidad arrayPublicidad[], int buscarEmpty,char cuitAux[], int idPantallaAux, int cantDiasAux, char archivoAux[]);
