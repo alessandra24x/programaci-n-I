@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1507680706 source:c:\ptrstruct\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1526483170 source:d:\a-utn\ejercicios\clase16-punteros\punterosrepaso15_05\clase 16\16 ptrstruct\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1526483170 source:d:\a-utn\ejercicios\clase16-punterosestructura\punterosrepaso15_05\clase 16\16 ptrstruct\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1570544652 source:e:\yxs\a-utn\tsp038-programacion i-laboratorio i\clases\clase 15\clase15 ptrstruct\main.c
+	<stdio.h>
+	<stdlib.h>
+
