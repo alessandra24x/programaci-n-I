@@ -8,6 +8,8 @@ typedef struct
     int sueldo;
 }Employee;
 
+int employee_idGenerator(int id);
+
 Employee* employee_new();
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr, char* sueldoStr);
 int employee_delete(Employee* this);
