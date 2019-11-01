@@ -8,6 +8,11 @@
 
 static int lastId = 0;
 
+int employee_idGenerator(int id) {
+   lastId = id++;
+   return lastId++;
+}
+
 Employee* employee_new() {
 	return (Employee*)malloc(sizeof(Employee));
 }
