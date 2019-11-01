@@ -46,7 +46,25 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee) {
  *
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee) {
-    return 1;
+  int ret = -1;
+  int auxId;
+  char auxNombre[256];
+  int auxHorasTrabajadas;
+  int auxSueldo;
+  Employee* auxEmployee;
+  auxEmployee = employee_new();
+  if(pArrayListEmployee != NULL && auxEmployee != NULL) {
+    
+    if(utn_getName("Ingrese el nombre", "Error. Ingrese un nombre valido", 1, 127, 2, auxNombre) == 0 && utn_getUnsignedInt("Ingrese la cantidad de horas trabajadas", "Error. Ingrese un valor valido", 1, sizeof(auxHorasTrabajadas), 0, 200, 2, &auxHorasTrabajadas) == 0 && utn_getUnsignedInt("Ingrese el sueldo", "Error. Ingrese un valor valido", 1, sizeof(auxSueldo), 1, 50000, 2, &auxSueldo) == 0) {
+      employee_setId(auxEmployee, employee_idGenerator(auxId));
+      employee_setNombre(auxEmployee, auxNombre);
+      employee_setHorasTrabajadas(auxEmployee, auxHorasTrabajadas);
+      employee_setSueldo(auxEmployee, auxSueldo);
+
+      ll_add(pArrayListEmployee, auxEmployee);
+    }
+  }
+    return ret;
 }
 
 /** \brief Modificar datos de empleado
@@ -95,7 +113,6 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee) {
 		}
 		return ret;
 	}
-
     return ret;
 }
 
@@ -108,7 +125,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee) {
  *
  */
 
-int print_Employee(LinkedList* pArrayListEmployee, index) {
+int print_Employee(LinkedList* pArrayListEmployee, int index) {
 	int ret = -1;
 	Employee* auxEmployee;
 	int auxId;
@@ -119,8 +136,8 @@ int print_Employee(LinkedList* pArrayListEmployee, index) {
 	if(pArrayListEmployee != NULL && index >= 0 && index < ll_len(pArrayListEmployee)) {
 		employee_getId(auxEmployee, &auxId);
 		employee_getNombre(auxEmployee, auxNombre);
-		employee_getHorasTrabajadas(auxEmployee, auxHorasTrabajadas);
-		employee_getSueldo(auxEmployee, auxSueldo);
+		employee_getHorasTrabajadas(auxEmployee, &auxHorasTrabajadas);
+		employee_getSueldo(auxEmployee, &auxSueldo);
 		ret = 0;
 	}
 	return ret;
@@ -161,4 +178,3 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 {
     return 1;
 }
-
