@@ -6,7 +6,7 @@
 
 static Node* getNode(LinkedList* this, int nodeIndex);
 static int addNode(LinkedList* this, int nodeIndex,void* pElement);
-static void swapNode(Node *a, Node *b);
+//static void swapNode(Node *a, Node *b);
 
 /** \brief Crea un nuevo LinkedList en memoria de manera dinamica
  *
@@ -89,14 +89,14 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement) {
 
     if(this != NULL && nodeIndex >= 0 && nodeIndex <= ll_len(this)) {
     	pNewNode = (Node*)malloc(sizeof(Node)); // Reservo memoria para el nuevo nodo
-    	if(nodeIndex == 0) { // Si esta vacia la lista ejecuto lo siguiente:
+    	if(nodeIndex == 0) { // Si es la primera posicion hago lo siguiente:
     		pAuxNode = getNode(this, nodeIndex); // Obtengo el nodo del LinkedList
     		pNewNode->pElement = pElement; // Al campo del elemento de Node le guardo el elemento recibido por parametro
     		pNewNode->pNextNode = pAuxNode; // Al campo NextNode de Node le asigno el ultimo nodo obtenido
     		this->pFirstNode = pNewNode; // Al campo FirstNode le asigno el nodo guardado en Node
     		this->size++; // Al campo Size se le aumenta en 1 su longitud
-    	} else { // Si la lista no esta vacia ejecuto lo siguiente:
-    		pAuxNode = getNode(this, nodeIndex -1); // Obtengo el nodo del LinkedList -1 para llegar al ultimo
+    	} else { // Si no es la primera posicion hago lo siguiente:
+    		pAuxNode = getNode(this, nodeIndex -1); // Obtengo el nodo del LinkedList -1 para llegar al anterior
     		pNewNode->pElement = pElement; // Al campo del elemento de Node le guardo el elemento recibido por parametro
     		pNewNode->pNextNode = pAuxNode->pNextNode; // Al campo NextNode de Node le asigno el ultimo nodo obtenido
     		pAuxNode->pNextNode = pNewNode; // Al campo NextNode le asigno el nodo guardado en Node
@@ -148,7 +148,7 @@ int ll_add(LinkedList* this, void* pElement){
  */
 void* ll_get(LinkedList* this, int index) {
     void* returnAux = NULL;
-    if(this != NULL &&  index >= 0 && index < ll_len(this)) {
+    if(this != NULL && index >= 0 && index < ll_len(this)) {
     	Node* auxNode = getNode(this, index);
     	returnAux = auxNode->pElement;
     }
@@ -192,15 +192,15 @@ int ll_remove(LinkedList* this,int index) {
     if(this != NULL && index >= 0 && index < ll_len(this)) {
 		Node* pPreviousNode = NULL;
 		Node* pAuxNode = NULL;
-		if(index == 0) { // Si esta vacia la lista ejecuto lo siguiente:
-			pAuxNode = getNode(this, index); // Obtengo el nodo del Node
+		if(index == 0) { // Si es la primera posicion hago lo siguiente:
+			pAuxNode = getNode(this, index); // Obtengo el nodo del LinkedList
 		    this->pFirstNode = pAuxNode->pNextNode; // Al campo FirstNode le asigno lo guardado en el campo NextNode
-		    free(pAuxNode); // Libero memoria del nodo que ya no esta
+		    free(pAuxNode); // Libero memoria del nodo que ya no necesito porque deseo borrar
 		    this->size--; // Al campo Size se le disminuye en 1 su longitud
-		    } else { // Si la lista no esta vacia ejecuto lo siguiente:
-		    	pAuxNode = getNode(this, index);
-		    	pPreviousNode = getNode(this, index -1);
-		    	pPreviousNode->pNextNode = pAuxNode->pNextNode;
+		    } else { // Si no es la primera posicion hago lo siguiente:
+		    	pAuxNode = getNode(this, index); // Obtengo el nodo del Node
+		    	pPreviousNode = getNode(this, index -1); // Obtengo el nodo del LinkedList -1 para llegar al nodo anterior
+		    	pPreviousNode->pNextNode = pAuxNode->pNextNode; //Al nodo anterior le asigno lo que esta en el nodo siguiente
 		    	this->size--; // Al campo Size se le disminuye en 1 su longitud
 		    	}
 		 	 	 returnAux = 0;
@@ -301,8 +301,9 @@ int ll_isEmpty(LinkedList* this) {
 int ll_push(LinkedList* this, int index, void* pElement) {
     int returnAux = -1;
 
-    returnAux = addNode(this, index, pElement);
-
+    if(this != NULL && index >= 0 && index <= ll_len(this)) {
+		returnAux = addNode(this, index, pElement);
+    }
     return returnAux;
 }
 
@@ -317,7 +318,7 @@ int ll_push(LinkedList* this, int index, void* pElement) {
 void* ll_pop(LinkedList* this,int index) {
     void* returnAux = NULL;
 
-    if(this != NULL &&  index >= 0 && index < ll_len(this)) {
+    if(this != NULL && index >= 0 && index < ll_len(this)) {
 		returnAux = ll_get(this, index);
 		ll_remove(this, index);
     }
@@ -460,9 +461,8 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order) {
 
 }
 
-static void swapNode(Node *a, Node *b) {
+void swapNode(Node *a, Node *b) {
 	void* temp = a->pElement;
 	a->pElement = b->pElement;
 	b->pElement = temp;
 }
-
