@@ -287,18 +287,17 @@ int controller_sortEmployee(LinkedList* pListaEmpleados) {
  * \return int
  *
  */
-int controller_saveAsText(char* path , LinkedList* pListaEmpleados) {
+int controller_saveAsText(FILE* pFile , LinkedList* pListaEmpleados) {
     int ret = 0;
 	Empleado* auxEmployee;
-    FILE* pf;
     int auxId;
     char auxNombre[4096];
     int auxHorasTrabajadas;
     int auxSueldo;
     int i, len;
-    pf = fopen(path, "w");
-    if(pListaEmpleados != NULL && pf != NULL) {
-    	fprintf(pf,"id,nombre,horasTrabajadas,sueldo\n");
+
+    if(pListaEmpleados != NULL && pFile != NULL) {
+    	fprintf(pFile,"id,nombre,horasTrabajadas,sueldo\n");
     	len = ll_len(pListaEmpleados);
     	for(i = 0; i < len; i++) {
     		auxEmployee = (Empleado*)ll_get(pListaEmpleados, i);
@@ -306,10 +305,9 @@ int controller_saveAsText(char* path , LinkedList* pListaEmpleados) {
     		employee_getNombre(auxEmployee, auxNombre);
     		employee_getHorasTrabajadas(auxEmployee, &auxHorasTrabajadas);
     		employee_getSueldo(auxEmployee, &auxSueldo);
-    		fprintf(pf,"%d,%s,%d,%d\n", auxId, auxNombre, auxHorasTrabajadas, auxSueldo);
+    		fprintf(pFile,"%d,%s,%d,%d\n", auxId, auxNombre, auxHorasTrabajadas, auxSueldo);
     		ret++;
     	}
-    	fclose(pf);
     }
     return ret;
 }

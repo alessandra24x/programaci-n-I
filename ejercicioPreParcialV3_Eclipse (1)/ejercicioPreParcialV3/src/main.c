@@ -24,7 +24,7 @@
     original pero con una columna mas al final, en donde se indicara el sueldo calculado.
 */
 
-//int generarArchivoSueldos(char* fileName,LinkedList* listaEmpleados);
+int generarArchivoSueldos(char* fileName,LinkedList* listaEmpleados);
 
 int main() {
 	int option = 0;
@@ -66,7 +66,7 @@ int main() {
                     controller_sortEmployee(listaEmpleados);
                 	break;
                 case 7:
-                    controller_saveAsText("data.csv", listaEmpleados);
+                	generarArchivoSueldos("data.csv", listaEmpleados);
                 	break;
                 default:
                 	printf("Ingrese una opcion valida");
@@ -78,26 +78,42 @@ int main() {
     if(parser_parseEmpleados("data.csv",listaEmpleados) == 0) {
         // Calcular sueldos
         printf("Calculando sueldos de empleados\n");
-        //al_map(listaEmpleados,em_calcularSueldo(listaEmpleados));
+        al_map(listaEmpleados,em_calcularSueldo);
 
         // Generar archivo de salida
-        /*if(generarArchivoSueldos("sueldos.csv",listaEmpleados)==1)
+        if(generarArchivoSueldos("sueldos.csv",listaEmpleados) == 0)
         {
             printf("Archivo generado correctamente\n");
         }
         else
             printf("Error generando archivo\n");
 
-        al_filter(listaEmpleados,em_filtrarporalguncriterio); //por ej salarios mayores a x cantidad
+        //al_filter(listaEmpleados,em_filtrarporalguncriterio); //por ej salarios mayores a x cantidad
     }
     else
-        printf("Error leyendo empleados\n");*/
+        printf("Error leyendo empleados\n");
 
 
     return 0;
 }
-}
 
-//int generarArchivoSueldos(char* fileName,LinkedList* listaEmpleados) {
-  //  return 1;
-//}
+int generarArchivoSueldos(char* fileName,LinkedList* listaEmpleados) {
+	FILE*pArchivo;
+	    int retorno=-1;
+
+	    if(fileName != NULL && listaEmpleados !=NULL)
+	    {
+	        pArchivo=fopen(fileName,"w");
+	        if(pArchivo != NULL && controller_saveAsText(pArchivo,listaEmpleados) == 0)
+	        {
+	            fclose(pArchivo);
+	            printf("\nGuardado exitoso en Texto");
+	            retorno=0;
+	        }
+	        else
+	        {
+	            printf("\nNo se pudo abrir el archivo");
+	        }
+	    }
+	    return retorno;
+}

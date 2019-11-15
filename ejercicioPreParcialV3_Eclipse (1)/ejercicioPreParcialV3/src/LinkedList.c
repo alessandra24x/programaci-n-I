@@ -472,7 +472,7 @@ int al_map(LinkedList* this,void (*pFunc)(void*)) {
 
 	if(this != NULL && pFunc != NULL) {
 		for(i = 0; i < ll_len(this); i++) {
-			if(pFunc(ll_get(this, i))) {
+			if(em_calcularSueldo(ll_get(this, i))) {
 				returnAux = 0;
 			}
 		}
