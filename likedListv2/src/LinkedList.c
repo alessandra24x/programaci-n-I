@@ -439,7 +439,7 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order) {
     if(this != NULL && pFunc != NULL && ll_len(this) > 1 && (order == 1 || order == 0)) {
     	do {
     		swap = 0;
-    		for(i = 0; i < ll_len(this); i++) {
+    		for(i = 0; i < ll_len(this)-1; i++) {
     			buffer1 = getNode(this, i);
     			buffer2 = getNode(this, i+1);
 
