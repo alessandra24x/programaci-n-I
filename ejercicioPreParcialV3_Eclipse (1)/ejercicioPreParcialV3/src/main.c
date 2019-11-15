@@ -24,96 +24,32 @@
     original pero con una columna mas al final, en donde se indicara el sueldo calculado.
 */
 
-int generarArchivoSueldos(char* fileName,LinkedList* listaEmpleados);
+int main()
+{
+    // Definir lista de empleados
+    LinkedList* listaEmpleados;
 
-int main() {
-	int option = 0;
-
-    LinkedList* listaEmpleados = ll_newLinkedList();
-
-    do{
-    	printf("/****************************************************\
-        	    	  \nMenu:\
-        	    	  \n1. Cargar los datos de los empleados desde el archivo data.csv (modo texto).\
-        	    	  \n\n2. Alta de empleado\
-        	    	  \n3. Modificar datos de empleado\
-        	    	  \n4. Baja de empleado\
-        	    	  \n5. Listar empleados\
-        	    	  \n6. Ordenar empleados\
-        	    	  \n\n7. Guardar los datos de los empleados en el archivo data.csv (modo texto).\
-        	    	  \n\n9. Salir\
-        	    	  \n*****************************************************/");
-
-        	utn_getUnsignedInt("\nSeleccione opcion: ","Opcion invalida",1,sizeof(int),1,10,1,&option);
-            switch(option) {
-                case 1:
-                    controller_loadFromText("data.csv",listaEmpleados);
-                    controller_lastIdEmployee(listaEmpleados);
-                    break;
-                case 2:
-                	controller_addEmployee(listaEmpleados);
-                	break;
-                case 3:
-                	controller_editEmployee(listaEmpleados);
-                	break;
-                case 4:
-                	controller_removeEmployee(listaEmpleados);
-                    break;
-                case 5:
-                	controller_ListEmployee(listaEmpleados);
-                    break;
-                case 6:
-                    controller_sortEmployee(listaEmpleados);
-                	break;
-                case 7:
-                	generarArchivoSueldos("data.csv", listaEmpleados);
-                	break;
-                default:
-                	printf("Ingrese una opcion valida");
-            }
-        }while(option != 10);
-        return 0;
+    // Crear lista empledos
+    listaEmpleados=ll_newLinkedList();
 
     // Leer empleados de archivo data.csv
-    if(parser_parseEmpleados("data.csv",listaEmpleados) == 0) {
+    if(controller_loadFromText("data.csv",listaEmpleados) == 0)
+    {
         // Calcular sueldos
         printf("Calculando sueldos de empleados\n");
         al_map(listaEmpleados,em_calcularSueldo);
 
         // Generar archivo de salida
-        if(generarArchivoSueldos("sueldos.csv",listaEmpleados) == 0)
+        if(parser_parseEmpleados("sueldos.csv",listaEmpleados) == 0)
         {
             printf("Archivo generado correctamente\n");
         }
         else
             printf("Error generando archivo\n");
-
-        //al_filter(listaEmpleados,em_filtrarporalguncriterio); //por ej salarios mayores a x cantidad
     }
     else
-        printf("Error leyendo empleados\n");
+        printf("Error leyando empleados\n");
 
 
     return 0;
-}
-
-int generarArchivoSueldos(char* fileName,LinkedList* listaEmpleados) {
-	FILE*pArchivo;
-	    int retorno=-1;
-
-	    if(fileName != NULL && listaEmpleados !=NULL)
-	    {
-	        pArchivo=fopen(fileName,"w");
-	        if(pArchivo != NULL && controller_saveAsText(pArchivo,listaEmpleados) == 0)
-	        {
-	            fclose(pArchivo);
-	            printf("\nGuardado exitoso en Texto");
-	            retorno=0;
-	        }
-	        else
-	        {
-	            printf("\nNo se pudo abrir el archivo");
-	        }
-	    }
-	    return retorno;
 }

@@ -8,5 +8,5 @@ int controller_removeEmployee(LinkedList* pListaEmpleados);
 int controller_ListEmployee(LinkedList* pListaEmpleados);
 int controller_PrintEmployee(LinkedList* pListaEmpleados, int index);
 int controller_sortEmployee(LinkedList* pListaEmpleados);
-int controller_saveAsText(FILE* pFile , LinkedList* pListaEmpleados);
-int controller_saveAsBinary(char* path , LinkedList* pListaEmpleados);
+int controller_controller_saveEmployeesAsText(FILE* pFile , LinkedList* pListaEmpleados);
+int controller_saveAsText(char* fileName,LinkedList* listaEmpleados);

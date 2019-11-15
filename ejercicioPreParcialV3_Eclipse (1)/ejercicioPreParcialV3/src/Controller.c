@@ -287,7 +287,7 @@ int controller_sortEmployee(LinkedList* pListaEmpleados) {
  * \return int
  *
  */
-int controller_saveAsText(FILE* pFile , LinkedList* pListaEmpleados) {
+int controller_saveEmployeesAsText(FILE* pFile , LinkedList* pListaEmpleados) {
     int ret = 0;
 	Empleado* auxEmployee;
     int auxId;
@@ -310,4 +310,25 @@ int controller_saveAsText(FILE* pFile , LinkedList* pListaEmpleados) {
     	}
     }
     return ret;
+}
+
+int controller_saveAsText(char* fileName,LinkedList* listaEmpleados) {
+	FILE*pArchivo;
+	    int retorno=-1;
+
+	    if(fileName != NULL && listaEmpleados !=NULL)
+	    {
+	        pArchivo=fopen(fileName,"w");
+	        if(pArchivo != NULL && controller_saveEmployeesAsText(pArchivo,listaEmpleados) == 0)
+	        {
+	            fclose(pArchivo);
+	            printf("\nGuardado exitoso en Texto");
+	            retorno=0;
+	        }
+	        else
+	        {
+	            printf("\nNo se pudo abrir el archivo");
+	        }
+	    }
+	    return retorno;
 }
