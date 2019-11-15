@@ -171,20 +171,28 @@ int employee_compareNombre(void* pEmployeeA,void* pEmployeeB) {
     return ret;
 }
 
-/*void em_calcularSueldo(void* p) {
+void em_calcularSueldo(void* empleado) {
 	// recibo elemento empleado como void.
 	// hacer calculo de sueldo y escribirlo en campo sueldo del empleado
-	Empleado* empleado = (Empleado) p;
-	int total, i;
-	int valorBasic;
-	Los valores de horas varian entre 80 y 240.
+	int sueldo, i, horasTrabajadas;
+	int valorBasic, valorExtra, valorExtraAdicional;
+	/*Los valores de horas varian entre 80 y 240.
 	    - Las primeras 120 horas la hora vale $180
 	    - De 120 a 160 horas, la hora vale $240
-	    - De 160 a 240 horas, la hora vale $350
-	if(empleado != NULL && empleado->horasTrabajadas >= 0 && empleado->horasTrabajadas <= 120) {
-		for(i = 0; i < ll_len(empleado); i++) {
-			valorBasic = empleado->horasTrabajadas * 180;
-			empleado->sueldo = valorBasic;
+	    - De 160 a 240 horas, la hora vale $350*/
+	if(empleado != NULL) {
+		employee_getHorasTrabajadas(empleado, &horasTrabajadas);
+		valorBasic = horasTrabajadas * 180;
+
+		if(horasTrabajadas > 120 && horasTrabajadas <= 160) {
+			horasTrabajadas = horasTrabajadas - 120;
+			valorExtra = horasTrabajadas * 240;
+		} else if(horasTrabajadas > 160 && horasTrabajadas <= 240) {
+			horasTrabajadas = horasTrabajadas - 160;
+			valorExtraAdicional = horasTrabajadas * 350;
 		}
+		sueldo = valorBasic + valorExtra + valorExtraAdicional;
+		employee_setSueldo(empleado, sueldo);
 	}
-}*/
+}
+

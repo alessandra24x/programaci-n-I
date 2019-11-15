@@ -3,10 +3,8 @@
 #include <string.h>
 #include "LinkedList.h"
 
-
 static Node* getNode(LinkedList* this, int nodeIndex);
 static int addNode(LinkedList* this, int nodeIndex,void* pElement);
-//static void swapNode(Node *a, Node *b);
 
 /** \brief Crea un nuevo LinkedList en memoria de manera dinamica
  *
@@ -468,17 +466,18 @@ void swapNode(Node *a, Node *b) {
 }
 
 int al_map(LinkedList* this,void (*pFunc)(void*)) {
-	int ret = -1;
+
+	int returnAux = -1;
 	int i;
 
-	if(this != NULL && pFunc != NULL && ll_len(this) > 1) {
+	if(this != NULL && pFunc != NULL) {
 		for(i = 0; i < ll_len(this); i++) {
-			//void* element = ll_get(this, i);
-			//calcularSueldo(element);
+			if(pFunc(ll_get(this, i))) {
+				returnAux = 0;
+			}
 		}
-		ret = 0;
 	}
-	return ret;
+	return returnAux;
 }
 
 /*int al_filter() {
