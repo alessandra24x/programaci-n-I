@@ -19,17 +19,18 @@ Empleado* employee_new() {
 	return (Empleado*)malloc(sizeof(Empleado));
 }
 
-Empleado* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr, char* sueldoStr) {
+Empleado* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr) {
 	Empleado* aux;
 	aux = employee_new();
 	if(aux != NULL) {
-		if(employee_setIdStr(aux,idStr) == -1 ||
-                employee_setNombre(aux,nombreStr) == -1 ||
-                employee_setHorasTrabajadasStr(aux,horasTrabajadasStr) == -1) {
+		if(employee_setIdStr(aux,idStr) ||
+                employee_setNombre(aux,nombreStr) ||
+                employee_setHorasTrabajadasStr(aux,horasTrabajadasStr)) {
                 employee_delete(aux);
                 aux = NULL;
               }
 	}
+	printf("%s", nombreStr);
 	return aux;
 }
 
