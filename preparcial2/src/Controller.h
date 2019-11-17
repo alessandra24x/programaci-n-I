@@ -1,0 +1,12 @@
+int controller_loadFromText(char* path , LinkedList* pListaEmpleados);
+int controller_loadFromBinary(char* path , LinkedList* pListaEmpleados);
+int controller_lastIdEmployee(LinkedList* pListaEmpleados);
+int controller_searchEmployeeById(LinkedList* pListaEmpleados, int id, int* index);
+int controller_addEmployee(LinkedList* pListaEmpleados);
+int controller_editEmployee(LinkedList* pListaEmpleados);
+int controller_removeEmployee(LinkedList* pListaEmpleados);
+int controller_ListEmployee(LinkedList* pListaEmpleados);
+int controller_PrintEmployee(LinkedList* pListaEmpleados, int index);
+int controller_sortEmployee(LinkedList* pListaEmpleados);
+int controller_controller_saveEmployeesAsText(FILE* pFile , LinkedList* pListaEmpleados);
+int controller_saveAsText(char* fileName,LinkedList* listaEmpleados);

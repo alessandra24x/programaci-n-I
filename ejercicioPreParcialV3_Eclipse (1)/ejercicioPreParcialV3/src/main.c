@@ -40,7 +40,7 @@ int main()
         al_map(listaEmpleados,em_calcularSueldo);
 
         // Generar archivo de salida
-        if(parser_parseEmpleados("sueldos.csv",listaEmpleados) == 0)
+        if(controller_saveAsText("sueldos.csv",listaEmpleados) == 0)
         {
             printf("Archivo generado correctamente\n");
         }

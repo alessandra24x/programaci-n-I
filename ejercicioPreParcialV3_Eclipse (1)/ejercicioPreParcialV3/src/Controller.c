@@ -308,7 +308,7 @@ int controller_saveEmployeesAsText(FILE* pFile , LinkedList* pListaEmpleados) {
     		fprintf(pFile,"%d,%s,%d,%d\n", auxId, auxNombre, auxHorasTrabajadas, auxSueldo);
     		ret++;
     	}
-	fclose(pFile)
+	fclose(pFile);
     }
     return ret;
 }
