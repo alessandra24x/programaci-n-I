@@ -18,7 +18,7 @@ int parser_parseEmpleados(FILE* fileName, LinkedList* listaEmpleados) {
 	                    auxNombre,
 	                    auxHorasTrabajadas,
 	                    auxSueldo);
-				pEmployee = employee_newParametros(auxId, auxNombre, auxHorasTrabajadas, auxSueldo);
+				pEmployee = employee_newParametros(auxId, auxNombre, auxHorasTrabajadas);
 
 				if(pEmployee != NULL) {
 					if(!ll_add(listaEmpleados, pEmployee)) {
