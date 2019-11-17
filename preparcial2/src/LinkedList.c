@@ -131,8 +131,8 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
 int ll_add(LinkedList* this, void* pElement){
     int returnAux = -1;
 
-    if(this != NULL) {
-    	returnAux = addNode(this, ll_len(this),pElement);
+    if(this != NULL && addNode(this, ll_len(this),pElement) == 0) {
+    	returnAux = 0;
     }
     return returnAux;
 }

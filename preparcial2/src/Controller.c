@@ -17,7 +17,11 @@ int controller_loadFromText(char* path , LinkedList* pListaEmpleados) {
 	int ret = 0;
 	FILE* pFile;
 	pFile = fopen(path, "r");
-	ret = parser_parseEmpleados(pFile, pListaEmpleados);
+	if(parser_parseEmpleados(pFile, pListaEmpleados)) {
+		ret = 0;
+	} else {
+		printf("No se pudo cargar la lista");
+	}
 	fclose(pFile);
 	return ret;
 }
@@ -182,17 +186,13 @@ int controller_saveAsText(char* fileName,LinkedList* listaEmpleados) {
 	FILE*pArchivo;
 	int retorno=-1;
 
-	    if(fileName != NULL && listaEmpleados !=NULL)
-	    {
+	    if(fileName != NULL && listaEmpleados !=NULL) {
 	        pArchivo=fopen(fileName,"w");
-	        if(pArchivo != NULL && controller_saveEmployeesAsText(pArchivo,listaEmpleados) == 0)
-	        {
+	        if(pArchivo != NULL && controller_saveEmployeesAsText(pArchivo,listaEmpleados)) {
 	            fclose(pArchivo);
 	            printf("\nGuardado exitoso en Texto");
-	            retorno=0;
-	        }
-	        else
-	        {
+	            retorno=  0;
+	        } else {
 	            printf("\nNo se pudo abrir el archivo");
 	        }
 	    }

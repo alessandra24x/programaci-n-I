@@ -31,22 +31,19 @@ int main()
     listaEmpleados = ll_newLinkedList();
 
     // Leer empleados de archivo data.csv
-    if(controller_loadFromText("data.csv",listaEmpleados) == 0)
-    {
-    	controller_ListEmployee(listaEmpleados);
+    if(controller_loadFromText("data.csv",listaEmpleados) == 0) {
+    	//controller_ListEmployee(listaEmpleados);
+
         // Calcular sueldos
         printf("Calculando sueldos de empleados\n");
         al_map(listaEmpleados,em_calcularSueldo);
 
         // Generar archivo de salida
-        if(controller_saveAsText("sueldos.csv",listaEmpleados) == 0)
-        {
-            printf("Archivo generado correctamente\n");
-        }
-        else
+        if(controller_saveAsText("sueldos.csv",listaEmpleados) == 0) {
+            printf("\nArchivo generado correctamente\n");
+        } else
             printf("Error generando archivo\n");
-    }
-    else
+    } else
         printf("Error leyendo empleados\n");
 
 

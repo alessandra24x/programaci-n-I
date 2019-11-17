@@ -8,20 +8,18 @@ int parser_parseEmpleados(FILE* fileName, LinkedList* listaEmpleados) {
 	char auxId[4096];
 	char auxNombre[4096];
 	char auxHorasTrabajadas[4096];
-	char auxSueldo[4096];
 	Empleado* pEmployee;
 
 		if(fileName != NULL && listaEmpleados != NULL) {
 			fscanf(fileName, "[^\n]\n");
 			while(!feof(fileName)) {
-				fscanf(fileName, "%[^,],%[^,],%[^,],%[^\n]\n",auxId,
+				fscanf(fileName, "%[^,],%[^,],%[^\n]\n",auxId,
 	                    auxNombre,
-	                    auxHorasTrabajadas,
-	                    auxSueldo);
+	                    auxHorasTrabajadas);
 				pEmployee = employee_newParametros(auxId, auxNombre, auxHorasTrabajadas);
 
 				if(pEmployee != NULL) {
-					if(!ll_add(listaEmpleados, pEmployee)) {
+					if(ll_add(listaEmpleados, pEmployee) == 0) {
 						ret++;
 					}
 				} else {

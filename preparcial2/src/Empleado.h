@@ -14,7 +14,7 @@ void employe_idInit(int id);
 int employee_idGenerator();
 
 Empleado* employee_new();
-Empleado* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr, char* sueldoStr);
+Empleado* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr);
 int employee_delete(Empleado* this);
 
 int employee_setIdStr(Empleado* this,char* idStr);

@@ -23,14 +23,13 @@ Empleado* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
 	Empleado* aux;
 	aux = employee_new();
 	if(aux != NULL) {
-		if(employee_setIdStr(aux,idStr) ||
-                employee_setNombre(aux,nombreStr) ||
-                employee_setHorasTrabajadasStr(aux,horasTrabajadasStr)) {
+		if(employee_setIdStr(aux,idStr) == -1 &&
+                employee_setNombre(aux,nombreStr) == -1 &&
+                employee_setHorasTrabajadasStr(aux,horasTrabajadasStr) == -1) {
                 employee_delete(aux);
                 aux = NULL;
               }
 	}
-	printf("%s", nombreStr);
 	return aux;
 }
 
@@ -43,7 +42,6 @@ int employee_delete(Empleado* this) {
 	}
 	return ret;
 }
-
 
 int employee_setIdStr(Empleado* this,char* idStr) {
     int ret = -1;
@@ -102,6 +100,7 @@ int employee_setHorasTrabajadasStr(Empleado* this,char* horasTrabajadasStr) {
       if(isValidNumber(horasTrabajadasStr) == 0) {
         auxHorasTrabajadas = atoi(horasTrabajadasStr);
         if(employee_setHorasTrabajadas(this, auxHorasTrabajadas) == 0) {
+        	employee_setHorasTrabajadas(this, auxHorasTrabajadas);
           ret = 0;
         }
       }
@@ -110,10 +109,13 @@ int employee_setHorasTrabajadasStr(Empleado* this,char* horasTrabajadasStr) {
 }
 
 int employee_setHorasTrabajadas(Empleado* this,int horasTrabajadas) {
+	printf("Valor de esta cosa %d\n", horasTrabajadas);
     int ret = -1;
-    if(this != NULL && horasTrabajadas >= 0) {
+    if(this != NULL && horasTrabajadas > 0) {
       this->horasTrabajadas = horasTrabajadas;
       ret = 0;
+    } else {
+    printf("error");
     }
     return ret;
 }
@@ -134,7 +136,10 @@ int employee_setSueldoStr(Empleado* this,char* sueldoStr) {
       if(isValidNumber(sueldoStr) == 0) {
         auxSueldo = atoi(sueldoStr);
         if(employee_setSueldo(this, auxSueldo) == 0) {
+        	employee_setSueldo(this,auxSueldo);
           ret = 0;
+        } else {
+        	printf("algo esta mal");
         }
       }
     }
@@ -142,10 +147,13 @@ int employee_setSueldoStr(Empleado* this,char* sueldoStr) {
 }
 
 int employee_setSueldo(Empleado* this,int sueldo) {
+	//printf("valor sueldo: %d\n", sueldo);
   int ret = -1;
   if(this != NULL && sueldo > 0) {
     this->sueldo = sueldo;
     ret = 0;
+  } else {
+	  //printf("Error");
   }
   return ret;
 }
