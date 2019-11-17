@@ -33,6 +33,7 @@ int main()
     // Leer empleados de archivo data.csv
     if(controller_loadFromText("data.csv",listaEmpleados) == 0)
     {
+    	controller_ListEmployee(listaEmpleados);
         // Calcular sueldos
         printf("Calculando sueldos de empleados\n");
         al_map(listaEmpleados,em_calcularSueldo);

@@ -23,10 +23,9 @@ Empleado* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
 	Empleado* aux;
 	aux = employee_new();
 	if(aux != NULL) {
-		if(employee_setIdStr(aux,idStr)||
-                employee_setNombre(aux,nombreStr)||
-                employee_setHorasTrabajadasStr(aux,horasTrabajadasStr)||
-                employee_setSueldoStr(aux,sueldoStr)) {
+		if(employee_setIdStr(aux,idStr) == -1 ||
+                employee_setNombre(aux,nombreStr) == -1 ||
+                employee_setHorasTrabajadasStr(aux,horasTrabajadasStr) == -1) {
                 employee_delete(aux);
                 aux = NULL;
               }

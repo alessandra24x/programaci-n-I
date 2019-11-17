@@ -24,6 +24,8 @@ int parser_parseEmpleados(FILE* fileName, LinkedList* listaEmpleados) {
 					if(!ll_add(listaEmpleados, pEmployee)) {
 						ret++;
 					}
+				} else {
+					printf("NULL");
 				}
 			}
 		}
