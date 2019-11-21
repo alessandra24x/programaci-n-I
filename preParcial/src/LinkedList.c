@@ -479,3 +479,35 @@ int al_map(LinkedList* this,void (*pFunc)(void*)) {
 	}
 	return returnAux;
 }
+
+LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*)) {
+    LinkedList* returnAux;
+    int i;
+    if(this != NULL && pFunc != NULL) {
+        returnAux = ll_newLinkedList();
+        for(i=0;i<ll_len(this);i++) {
+            if(pFunc(ll_get(this,i))) {
+                ll_add(returnAux,ll_get(this,i));
+            }
+        }
+    }
+    return returnAux;
+}
+
+int ll_count(LinkedList* this, int (*fn)(void*)) {
+    int i, valor, c = 0;
+    if(this != NULL && fn != NULL) {
+        for(i=0;i<ll_len(this);i++) {
+        	valor = fn(algo);
+                c += valor;
+        }
+    }
+    return c;
+}
+
+int ll_count(LinkedList* this, int (*fn)(void* element))
+
+La función “ll_count” recibirá una lista y una función “fn”. Se deberá iterar todos los elementos de la
+lista y pasárselos a la funcion “fn”. La función “fn” devolverá la cantidad que debe contarse. La
+función “ll_count” almacenará un acumulador al cual sumará el valor de retorno de “fn” en cada
+iteración. Al finalizar las iteraciones, la función “ll_count” devolverá el valor acumulado.

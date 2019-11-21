@@ -55,3 +55,4 @@ LinkedList* ll_clone(LinkedList* this);
 int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order);
 void swapNode(Node *a, Node *b);
 int al_map(LinkedList* this,void (*pFunc)(void*));
+LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*))
