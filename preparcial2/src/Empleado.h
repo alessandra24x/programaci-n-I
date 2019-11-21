@@ -36,5 +36,6 @@ int employee_compareNombre(void* pEmployeeA,void* pEmployeeB);
 int employee_compareHorasTrabajadas(void* pEmployeeA,void* pEmployeeB);
 
 void em_calcularSueldo(void* empleado);
+int filtrarPorSueldo(void* empleado);
 
 #endif // EMPLEADO_H_INCLUDED

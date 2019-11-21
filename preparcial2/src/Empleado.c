@@ -22,17 +22,30 @@ Empleado* employee_new() {
 Empleado* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr) {
 	Empleado* aux;
 	aux = employee_new();
+  printf("newParam1\nId:%s\nNombre: %s\nHoras: %s\n\n", idStr, nombreStr, horasTrabajadasStr);
 	if(aux != NULL) {
-		if(employee_setIdStr(aux,idStr) == -1 &&
-                employee_setNombre(aux,nombreStr) == -1 &&
-                employee_setHorasTrabajadasStr(aux,horasTrabajadasStr) == -1) {
-                employee_delete(aux);
-                aux = NULL;
-              }
+    int setId = employee_setIdStr(aux, idStr);
+    int setNombre = employee_setNombre(aux, nombreStr);
+    int setHoras = employee_setHorasTrabajadasStr(aux, horasTrabajadasStr);
+
+    if (setId != 0) {
+      printf("Problema al cargar id\n");
+      return NULL;
+    }
+
+    if (setNombre != 0) {
+      printf("Problema al cargar nombre\n");
+      return NULL;
+    }
+
+    if (setHoras != 0) {
+      printf("Problema al cargar horas\n");
+      return NULL;
+    }
 	}
+
 	return aux;
 }
-
 
 int employee_delete(Empleado* this) {
 	int ret = -1;
@@ -109,7 +122,6 @@ int employee_setHorasTrabajadasStr(Empleado* this,char* horasTrabajadasStr) {
 }
 
 int employee_setHorasTrabajadas(Empleado* this,int horasTrabajadas) {
-	printf("Valor de esta cosa %d\n", horasTrabajadas);
     int ret = -1;
     if(this != NULL && horasTrabajadas > 0) {
       this->horasTrabajadas = horasTrabajadas;
@@ -201,4 +213,16 @@ void em_calcularSueldo(void* empleado) {
 		}
 		employee_setSueldo(empleado, sueldo);
 	}
+}
+
+int filtrarPorSueldo(void* empleado) {
+	int returnAux = -1;
+	int sueldo;
+	if(empleado != NULL) {
+		employee_getSueldo(empleado, &sueldo);
+		if(sueldo > 28000) {
+			returnAux = 0;
+		}
+	}
+	return returnAux;
 }

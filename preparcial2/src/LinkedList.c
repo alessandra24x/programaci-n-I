@@ -88,18 +88,18 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement) {
 
     if(this != NULL && nodeIndex >= 0 && nodeIndex <= ll_len(this)) {
     	pNewNode = (Node*)malloc(sizeof(Node)); // Reservo memoria para el nuevo nodo
-    	if(nodeIndex == 0) { // Si es la primera posicion hago lo siguiente:
+    	if(nodeIndex == 0) { // Si es la primera posición se agregará el nodo al principio de la lista
     		pAuxNode = getNode(this, nodeIndex); // Obtengo el nodo del LinkedList
-    		pNewNode->pElement = pElement; // Al campo del elemento de Node le guardo el elemento recibido por parametro
-    		pNewNode->pNextNode = pAuxNode; // Al campo NextNode de Node le asigno el ultimo nodo obtenido
-    		this->pFirstNode = pNewNode; // Al campo FirstNode le asigno el nodo guardado en Node
-    		this->size++; // Al campo Size se le aumenta en 1 su longitud
-    	} else { // Si no es la primera posicion hago lo siguiente:
-    		pAuxNode = getNode(this, nodeIndex -1); // Obtengo el nodo del LinkedList -1 para llegar al anterior
-    		pNewNode->pElement = pElement; // Al campo del elemento de Node le guardo el elemento recibido por parametro
-    		pNewNode->pNextNode = pAuxNode->pNextNode; // Al campo NextNode de Node le asigno el ultimo nodo obtenido
+    		pNewNode->pElement = pElement; // Al nuevo nodo le guardo el elemento recibido por parametro
+    		pNewNode->pNextNode = pAuxNode; // Al campo NextNode de Node le asigno el apuntador al nuevo nodo obtenido con getNode
+    		this->pFirstNode = pNewNode; // Se asigna a la cabecera de la lista el nodo creado anteriormente
+    		this->size++; // Al campo Size se le aumenta en 1 su longitud para saber la longitud exacta de la lista
+    	} else { // Si no es la primera posición se agregará el nodo al final de la lista
+    		pAuxNode = getNode(this, nodeIndex -1); // Obtengo el nodo al que le voy a agregar el nuevo nodo (nodeIndex - 1), lo guardo en una variable auxiliar para no perderlo.
+    		pNewNode->pElement = pElement; // Al nuevo nodo le guardo el elemento recibido por parametro
+    		pNewNode->pNextNode = pAuxNode->pNextNode; // Al nuevo nodo le apunto el nodo que antes apuntaba el nodo auxiliar y le asigno el apuntador al nodo siguiente que esta siendo apuntando desde el auxiliar
     		pAuxNode->pNextNode = pNewNode; // Al campo NextNode le asigno el nodo guardado en Node
-    		this->size++; // Al campo Size se le aumenta en 1 su longitud
+    		this->size++; // Al campo Size se le aumenta en 1 su longitud para saber la longitud exacta de la lista
     	}
     	returnAux = 0;
     }
@@ -480,15 +480,16 @@ int al_map(LinkedList* this,void (*pFunc)(void*)) {
 	return returnAux;
 }
 
-/*int al_filter() {
-	LinkedList* listaFiltrada;
-	void* el;
-
-	listaFiltrada = ll new()
-		for(i = 0; i < ll_len(this); i++) {
-				el = ll_get(this, i);
-				if(funcion(el) == OK) {
-					ll_add(listaFiltrada, el);
-				}
-			}
-}*/
+LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*)) {
+    LinkedList* returnAux;
+    int i;
+    if(this != NULL && pFunc != NULL) {
+        returnAux = ll_newLinkedList();
+        for(i=0;i<ll_len(this);i++) {
+            if(pFunc(ll_get(this,i))) {
+                ll_add(returnAux,ll_get(this,i));
+            }
+        }
+    }
+    return returnAux;
+}

@@ -26,6 +26,7 @@ int main()
 {
     // Definir lista de empleados
     LinkedList* listaEmpleados;
+    LinkedList* listaEmpleadosFiltrados;
 
     // Crear lista empledos
     listaEmpleados = ll_newLinkedList();
@@ -43,6 +44,18 @@ int main()
             printf("\nArchivo generado correctamente\n");
         } else
             printf("Error generando archivo\n");
+
+        // Calcular sueldos Filtrados
+        listaEmpleadosFiltrados = ll_filter(listaEmpleados,filtrarPorSueldo);
+        printf("Calculando sueldos mayores a 28000 de empleados\n");
+
+        if(listaEmpleadosFiltrados != NULL) {
+			if(controller_saveAsText("sueldosFiltrados.csv",listaEmpleadosFiltrados) == 0) {
+				printf("\nArchivo generado correctamente\n");
+			} else
+				printf("Error generando archivo\n");
+        }
+
     } else
         printf("Error leyendo empleados\n");
 
