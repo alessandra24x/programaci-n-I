@@ -47,6 +47,10 @@ namespace practica2
                     sb.AppendFormat("Instrumento: {0}\n", element.instrumento.nombre);
                 }
             }
+            else
+            {
+                sb.AppendFormat("NO HAY MUSICOS EN ESTA ORQUESTA");
+            }
             Console.WriteLine("{0}", sb.ToString());
             Console.ReadLine();
         }

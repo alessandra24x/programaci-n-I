@@ -18,7 +18,7 @@ namespace practica2
             Console.WriteLine("Nombre: {0}, Tipo: {1}", instrumento.nombre, instrumento.tipo);
             Console.ReadLine();
 
-            Musico musicoPrincipal = new Musico("Carla", "Perez", "26", instrumento);
+            Musico musicoPrincipal = new Musico("Carla", "Perez", 26, instrumento);
             Console.WriteLine("Nombre del Musico: {0}, Apellido: {1}, Edad: {2}, \n Instrumento: {3}",
                             musicoPrincipal.nombre, musicoPrincipal.apellido, musicoPrincipal.edad,
                             musicoPrincipal.instrumento /*musicoPrincipal.orquesta.getOrquestaToString()*/);
