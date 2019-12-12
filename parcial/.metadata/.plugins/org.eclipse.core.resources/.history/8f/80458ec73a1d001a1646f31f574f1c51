@@ -13,7 +13,7 @@ int main()
 	int option = 0;
 
     LinkedList* listaComputers;
-    LinkedList* listaComputadorasFiltradas;
+    //LinkedList* listaPerrosFiltrados;
 
     listaComputers = ll_newLinkedList();
 
@@ -34,23 +34,23 @@ int main()
                     controller_loadFromText("datos_Fin.csv",listaComputers);
                     break;
                 case 2:
-                	controller_sortComputers(listaComputers);
+
                     break;
                 case 3:
                 	controller_ListComputers(listaComputers);
 
                 	break;
                 case 4:
-                	listaComputadorasFiltradas = ll_filter(listaComputers,filtrar);
-                	printf("Calculando\n");
+                	/*listaPerrosFiltrados = ll_filter(listaPerros,filtrarMenores45Dias);
+                	                    printf("Calculando\n");
 
-                	if(listaComputadorasFiltradas != NULL) {
-                		if(controller_saveAsText("filtrados.csv",listaComputadorasFiltradas) == 0) {
-                			printf("\nArchivo generado correctamente\n");
-                		} else {
-                			printf("Error generando archivo\n");
-                		}
-                	}
+                	                    if(listaPerrosFiltrados != NULL) {
+                							if(controller_saveAsText("cachorrosFiltrados2.csv",listaPerrosFiltrados) == 0) {
+                								printf("\nArchivo generado correctamente\n");
+                							} else {
+                								printf("Error generando archivo\n");
+                							}
+                	                    }*/
                 	break;
 
                 case 5:

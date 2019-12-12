@@ -236,15 +236,3 @@ int computer_mapIdTipo(void* pComputer) {
 	}
 	return ret;
 }
-
-int filtrar(void* computer) {
-	int returnAux = -1;
-	int comp;
-	if(computer != NULL) {
-		computer_getIdTipo(computer, comp);
-		if(comp == 1) {
-			returnAux = 0;
-		}
-	}
-	return returnAux;
-}

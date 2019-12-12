@@ -34,7 +34,7 @@ int main()
                     controller_loadFromText("datos_Fin.csv",listaComputers);
                     break;
                 case 2:
-                	controller_sortComputers(listaComputers);
+
                     break;
                 case 3:
                 	controller_ListComputers(listaComputers);

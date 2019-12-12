@@ -4,4 +4,3 @@ int controller_ListComputers(LinkedList* pListaComputers);
 int controller_saveComputersAsText(FILE* pFile , LinkedList* pListaComputers);
 int controller_saveAsText(char* fileName,LinkedList* listaComputers);
 int controller_sortComputers(LinkedList* pListaComputers);
-int controller_mapComputers(LinkedList* pListaComputers);

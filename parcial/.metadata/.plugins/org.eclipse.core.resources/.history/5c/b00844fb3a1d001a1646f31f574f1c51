@@ -156,7 +156,7 @@ int controller_mapComputers(LinkedList* pListaComputers) {
     int ret = -1;
     if(pListaComputers != NULL) {
     	if(ll_len(pListaComputers) > 0) {
-    		ll_map(pListaComputers,computer_mapIdTipo);
+    		ll_map(pListaComputers,computer_mapIdTipo,0);
     	}
     		ret = 0;
     		printf("Operacion completada");

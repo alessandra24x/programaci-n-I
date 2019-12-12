@@ -152,17 +152,3 @@ int controller_sortComputers(LinkedList* pListaComputers) {
     return ret;
 }
 
-int controller_mapComputers(LinkedList* pListaComputers) {
-    int ret = -1;
-    if(pListaComputers != NULL) {
-    	if(ll_len(pListaComputers) > 0) {
-    		ll_map(pListaComputers,computer_mapIdTipo);
-    	}
-    		ret = 0;
-    		printf("Operacion completada");
-    	} else {
-    		printf("No hay registros cargados");
-    	}
-    return ret;
-}
-

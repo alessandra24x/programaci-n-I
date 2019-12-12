@@ -1,73 +1,112 @@
-19:03:37 **** Build of configuration Debug for project parcial ****
-make all 
-Building file: ../src/parcial.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/parcial.d" -MT"src/parcial.o" -o "src/parcial.o" "../src/parcial.c"
-Finished building: ../src/parcial.c
- 
-Building target: parcial
-Invoking: GCC C Linker
-gcc  -o "parcial"  ./src/parcial.o   
-./src/parcial.o: En la función `main':
-/home/alumno/Ale/parcial/parcial/Debug/../src/parcial.c:19: referencia a `ll_newLinkedList' sin definir
-makefile:30: fallo en las instrucciones para el objetivo 'parcial'
-/home/alumno/Ale/parcial/parcial/Debug/../src/parcial.c:32: referencia a `utn_getUnsignedInt' sin definir
-/home/alumno/Ale/parcial/parcial/Debug/../src/parcial.c:36: referencia a `controller_loadFromText' sin definir
-/home/alumno/Ale/parcial/parcial/Debug/../src/parcial.c:40: referencia a `controller_ListPerros' sin definir
-/home/alumno/Ale/parcial/parcial/Debug/../src/parcial.c:43: referencia a `filtrarMenores45Dias' sin definir
-/home/alumno/Ale/parcial/parcial/Debug/../src/parcial.c:43: referencia a `ll_filter' sin definir
-/home/alumno/Ale/parcial/parcial/Debug/../src/parcial.c:47: referencia a `controller_saveAsText' sin definir
-/home/alumno/Ale/parcial/parcial/Debug/../src/parcial.c:55: referencia a `filtrarMachos' sin definir
-/home/alumno/Ale/parcial/parcial/Debug/../src/parcial.c:55: referencia a `ll_filter' sin definir
-/home/alumno/Ale/parcial/parcial/Debug/../src/parcial.c:56: referencia a `controller_saveAsText' sin definir
-/home/alumno/Ale/parcial/parcial/Debug/../src/parcial.c:63: referencia a `filtrarRazas' sin definir
-/home/alumno/Ale/parcial/parcial/Debug/../src/parcial.c:63: referencia a `ll_filter' sin definir
-/home/alumno/Ale/parcial/parcial/Debug/../src/parcial.c:64: referencia a `controller_ListPerros' sin definir
-collect2: error: ld returned 1 exit status
-make: *** [parcial] Error 1
-"make all" terminated with exit code 2. Build might be incomplete.
-19:42:22 **** Incremental Build of configuration Debug for project parcial ****
+20:57:00 **** Incremental Build of configuration Debug for project parcial ****
 make all 
 Building file: ../src/Controller.c
 Invoking: GCC C Compiler
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Controller.d" -MT"src/Controller.o" -o "src/Controller.o" "../src/Controller.c"
-../src/Controller.c: In function ‘controller_loadFromText’:
-../src/Controller.c:21:5: warning: implicit declaration of function ‘parser_parsePerros’ [-Wimplicit-function-declaration]
-  if(parser_parsePerros(pFile, pListaPerros)) {
+../src/Controller.c: In function ‘controller_mapComputers’:
+../src/Controller.c:159:30: warning: passing argument 2 of ‘ll_map’ from incompatible pointer type [-Wincompatible-pointer-types]
+       ll_map(pListaComputers,computer_mapIdTipo);
+                              ^~~~~~~~~~~~~~~~~~
+In file included from ../src/Parser.h:4:0,
+                 from ../src/Controller.c:7:
+../src/LinkedList.h:57:5: note: expected ‘void (*)(void *)’ but argument is of type ‘int (*)(void *)’
+ int ll_map(LinkedList* this,void (*pFunc)(void*));
+     ^~~~~~
+Finished building: ../src/Controller.c
+ 
+Building file: ../src/LinkedList.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/LinkedList.d" -MT"src/LinkedList.o" -o "src/LinkedList.o" "../src/LinkedList.c"
+Finished building: ../src/LinkedList.c
+ 
+Building file: ../src/Parser.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parser.d" -MT"src/Parser.o" -o "src/Parser.o" "../src/Parser.c"
+../src/Parser.c: In function ‘parser_parseComputers’:
+../src/Parser.c:18:56: warning: format ‘%[^
+   ’ expects a matching ‘char *’ argument [-Wformat=]
+     fscanf(fileName, "%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",auxId,
+                                                        ^
+Finished building: ../src/Parser.c
+ 
+Building file: ../src/computer.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/computer.d" -MT"src/computer.o" -o "src/computer.o" "../src/computer.c"
+../src/computer.c: In function ‘computer_newParametros’:
+../src/computer.c:21:45: warning: passing argument 2 of ‘computer_setIdTipo’ makes integer from pointer without a cast [-Wint-conversion]
+     int setIdTipo = computer_setIdTipo(aux, idTipoStr);
+                                             ^~~~~~~~~
+In file included from ../src/computer.c:5:0:
+../src/computer.h:30:5: note: expected ‘int’ but argument is of type ‘char *’
+ int computer_setIdTipo(Computer* this,int idTipo);
      ^~~~~~~~~~~~~~~~~~
-../src/Controller.c: In function ‘controller_PrintPerros’:
-../src/Controller.c:33:2: error: unknown type name ‘Perro’
-  Perro* auxPerro;
-  ^~~~~
-../src/Controller.c:43:3: warning: implicit declaration of function ‘perro_getId’ [-Wimplicit-function-declaration]
-   perro_getId(auxPerro, &auxId);
-   ^~~~~~~~~~~
-../src/Controller.c:44:3: warning: implicit declaration of function ‘perro_getNombre’ [-Wimplicit-function-declaration]
-   perro_getNombre(auxPerro, auxNombre);
-   ^~~~~~~~~~~~~~~
-../src/Controller.c:45:3: warning: implicit declaration of function ‘perro_getDias’ [-Wimplicit-function-declaration]
-   perro_getDias(auxPerro, &auxDias);
-   ^~~~~~~~~~~~~
-../src/Controller.c:46:3: warning: implicit declaration of function ‘perro_getRaza’ [-Wimplicit-function-declaration]
-   perro_getRaza(auxPerro, auxRaza);
-   ^~~~~~~~~~~~~
-../src/Controller.c:47:3: warning: implicit declaration of function ‘perro_getReservado’ [-Wimplicit-function-declaration]
-   perro_getReservado(auxPerro, auxReservado);
-   ^~~~~~~~~~~~~~~~~~
-../src/Controller.c:48:3: warning: implicit declaration of function ‘perro_getSexo’ [-Wimplicit-function-declaration]
-   perro_getSexo(auxPerro, auxSexo);
-   ^~~~~~~~~~~~~
-../src/Controller.c: In function ‘controller_savePerrosAsText’:
-../src/Controller.c:91:2: error: unknown type name ‘Perro’
-  Perro* auxPerro;
-src/subdir.mk:33: fallo en las instrucciones para el objetivo 'src/Controller.o'
-  ^~~~~
-../src/Controller.c:105:19: error: ‘Perro’ undeclared (first use in this function)
-       auxPerro = (Perro*)ll_get(pListaPerros, i);
-                   ^~~~~
-../src/Controller.c:105:19: note: each undeclared identifier is reported only once for each function it appears in
-../src/Controller.c:105:25: error: expected expression before ‘)’ token
-       auxPerro = (Perro*)ll_get(pListaPerros, i);
-                         ^
-make: *** [src/Controller.o] Error 1
+../src/computer.c:22:45: warning: passing argument 2 of ‘computer_setOferta’ makes integer from pointer without a cast [-Wint-conversion]
+     int setOferta = computer_setOferta(aux, ofertaStr);
+                                             ^~~~~~~~~
+In file included from ../src/computer.c:5:0:
+../src/computer.h:34:5: note: expected ‘int’ but argument is of type ‘char *’
+ int computer_setOferta(Computer* this,int oferta);
+     ^~~~~~~~~~~~~~~~~~
+../src/computer.c: In function ‘computer_setOferta’:
+../src/computer.c:197:20: error: assignment to expression with array type
+       this->oferta = oferta;
+                    ^
+../src/computer.c: In function ‘computer_getOferta’:
+../src/computer.c:208:13: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+     *oferta = this->oferta;
+             ^
+../src/computer.c: In function ‘computer_compareIdTipo’:
+../src/computer.c:216:15: warning: passing argument 1 of ‘strcmp’ makes pointer from integer without a cast [-Wint-conversion]
+     if(strcmp(((Computer*)pComputerA)->idTipo,((Computer*)pComputerB)->idTipo) > 0) {
+               ^
+In file included from ../src/computer.c:3:0:
+src/subdir.mk:33: fallo en las instrucciones para el objetivo 'src/computer.o'
+/usr/include/string.h:140:12: note: expected ‘const char *’ but argument is of type ‘int’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/computer.c:216:47: warning: passing argument 2 of ‘strcmp’ makes pointer from integer without a cast [-Wint-conversion]
+     if(strcmp(((Computer*)pComputerA)->idTipo,((Computer*)pComputerB)->idTipo) > 0) {
+                                               ^
+In file included from ../src/computer.c:3:0:
+/usr/include/string.h:140:12: note: expected ‘const char *’ but argument is of type ‘int’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/computer.c:219:15: warning: passing argument 1 of ‘strcmp’ makes pointer from integer without a cast [-Wint-conversion]
+     if(strcmp(((Computer*)pComputerA)->idTipo,((Computer*)pComputerB)->idTipo) < 0) {
+               ^
+In file included from ../src/computer.c:3:0:
+/usr/include/string.h:140:12: note: expected ‘const char *’ but argument is of type ‘int’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/computer.c:219:47: warning: passing argument 2 of ‘strcmp’ makes pointer from integer without a cast [-Wint-conversion]
+     if(strcmp(((Computer*)pComputerA)->idTipo,((Computer*)pComputerB)->idTipo) < 0) {
+                                               ^
+In file included from ../src/computer.c:3:0:
+/usr/include/string.h:140:12: note: expected ‘const char *’ but argument is of type ‘int’
+ extern int strcmp (const char *__s1, const char *__s2)
+            ^~~~~~
+../src/computer.c: In function ‘computer_mapIdTipo’:
+../src/computer.c:229:8: error: assignment to expression with array type
+   info = "SIN DATOS";
+        ^
+../src/computer.c:230:33: warning: passing argument 2 of ‘computer_getOferta’ from incompatible pointer type [-Wincompatible-pointer-types]
+   computer_getOferta(pComputer, info);
+                                 ^~~~
+../src/computer.c:205:5: note: expected ‘int *’ but argument is of type ‘char *’
+ int computer_getOferta(Computer* this,int* oferta) {
+     ^~~~~~~~~~~~~~~~~~
+../src/computer.c:234:33: warning: passing argument 2 of ‘computer_getOferta’ from incompatible pointer type [-Wincompatible-pointer-types]
+   computer_getOferta(pComputer, info);
+                                 ^~~~
+../src/computer.c:205:5: note: expected ‘int *’ but argument is of type ‘char *’
+ int computer_getOferta(Computer* this,int* oferta) {
+     ^~~~~~~~~~~~~~~~~~
+../src/computer.c: In function ‘filtrar’:
+../src/computer.c:244:32: warning: passing argument 2 of ‘computer_getIdTipo’ makes pointer from integer without a cast [-Wint-conversion]
+   computer_getIdTipo(computer, comp);
+                                ^~~~
+../src/computer.c:170:5: note: expected ‘int *’ but argument is of type ‘int’
+ int computer_getIdTipo(Computer* this,int* idTipo) {
+     ^~~~~~~~~~~~~~~~~~
+make: *** [src/computer.o] Error 1
 "make all" terminated with exit code 2. Build might be incomplete.

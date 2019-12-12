@@ -35,7 +35,6 @@ int computer_setOferta(Computer* this,int oferta);
 int computer_getOferta(Computer* this,int* oferta);
 
 int computer_compareIdTipo(void* pComputerA,void* pComputerB);
-int computer_mapIdTipo(void* pComputer);
 
 
 #endif // COMPUTER_H_INCLUDED

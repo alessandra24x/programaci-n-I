@@ -224,27 +224,38 @@ int computer_compareIdTipo(void* pComputerA,void* pComputerB) {
 
 int computer_mapIdTipo(void* pComputer) {
 	int ret = 0;
-	char info[128];
 	if(((Computer*)pComputer)->idTipo == 2) {
-		info = "SIN DATOS";
-		computer_getOferta(pComputer, info);
 		ret = 1;
 	}
-	if(((Computer*)pComputer)->idTipo == 1 && ((Computer*)pComputer)->precio > 20000) {
-		computer_getOferta(pComputer, info);
+	if(((Computer*)pComputer)->idTipo == 1) {
 		ret = -1;
 	}
 	return ret;
 }
 
-int filtrar(void* computer) {
-	int returnAux = -1;
-	int comp;
-	if(computer != NULL) {
-		computer_getIdTipo(computer, comp);
-		if(comp == 1) {
-			returnAux = 0;
+
+int asignacionOferta(Computer* this) {
+	int sueldo, horasTrabajadas;
+	char sinDatos[128];
+
+	ll_map(LinkedList* this,void (*pFunc)(void*))
+
+	if(this != NULL) {
+		if(this->idTipo == 2) {
+			sinDatos = "SIN DATOS";
+			computer_getOferta(this, sinDatos);
 		}
+		if()
+
+		if(horasTrabajadas <= 120) {
+			sueldo = horasTrabajadas * 180;
+		} else if(horasTrabajadas > 120 && horasTrabajadas <= 160) {
+			horasTrabajadas = horasTrabajadas - 120;
+			sueldo = horasTrabajadas * 240 + (120 * 180);
+		} else if(horasTrabajadas > 160 && horasTrabajadas <= 240) {
+			horasTrabajadas = horasTrabajadas - 160;
+			sueldo = horasTrabajadas * 350 + (40 * 240) + (120 * 180);
+		}
+		employee_setSueldo(empleado, sueldo);
 	}
-	return returnAux;
 }
