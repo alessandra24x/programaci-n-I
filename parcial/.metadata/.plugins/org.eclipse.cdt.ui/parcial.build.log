@@ -1,0 +1,48 @@
+19:42:22 **** Incremental Build of configuration Debug for project parcial ****
+make all 
+Building file: ../src/Controller.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Controller.d" -MT"src/Controller.o" -o "src/Controller.o" "../src/Controller.c"
+../src/Controller.c: In function ‘controller_loadFromText’:
+../src/Controller.c:21:5: warning: implicit declaration of function ‘parser_parsePerros’ [-Wimplicit-function-declaration]
+  if(parser_parsePerros(pFile, pListaPerros)) {
+     ^~~~~~~~~~~~~~~~~~
+../src/Controller.c: In function ‘controller_PrintPerros’:
+../src/Controller.c:33:2: error: unknown type name ‘Perro’
+  Perro* auxPerro;
+  ^~~~~
+../src/Controller.c:43:3: warning: implicit declaration of function ‘perro_getId’ [-Wimplicit-function-declaration]
+   perro_getId(auxPerro, &auxId);
+   ^~~~~~~~~~~
+../src/Controller.c:44:3: warning: implicit declaration of function ‘perro_getNombre’ [-Wimplicit-function-declaration]
+   perro_getNombre(auxPerro, auxNombre);
+   ^~~~~~~~~~~~~~~
+../src/Controller.c:45:3: warning: implicit declaration of function ‘perro_getDias’ [-Wimplicit-function-declaration]
+   perro_getDias(auxPerro, &auxDias);
+   ^~~~~~~~~~~~~
+../src/Controller.c:46:3: warning: implicit declaration of function ‘perro_getRaza’ [-Wimplicit-function-declaration]
+   perro_getRaza(auxPerro, auxRaza);
+   ^~~~~~~~~~~~~
+../src/Controller.c:47:3: warning: implicit declaration of function ‘perro_getReservado’ [-Wimplicit-function-declaration]
+   perro_getReservado(auxPerro, auxReservado);
+   ^~~~~~~~~~~~~~~~~~
+../src/Controller.c:48:3: warning: implicit declaration of function ‘perro_getSexo’ [-Wimplicit-function-declaration]
+   perro_getSexo(auxPerro, auxSexo);
+   ^~~~~~~~~~~~~
+../src/Controller.c: In function ‘controller_savePerrosAsText’:
+../src/Controller.c:91:2: error: unknown type name ‘Perro’
+  Perro* auxPerro;
+src/subdir.mk:33: fallo en las instrucciones para el objetivo 'src/Controller.o'
+  ^~~~~
+../src/Controller.c:105:19: error: ‘Perro’ undeclared (first use in this function)
+       auxPerro = (Perro*)ll_get(pListaPerros, i);
+                   ^~~~~
+../src/Controller.c:105:19: note: each undeclared identifier is reported only once for each function it appears in
+../src/Controller.c:105:25: error: expected expression before ‘)’ token
+       auxPerro = (Perro*)ll_get(pListaPerros, i);
+                         ^
+make: *** [src/Controller.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+19:42:23 Build Failed. 6 errors, 7 warnings. (took 305ms)
+
