@@ -5,5 +5,4 @@
 
 int parser_parsePerros(FILE* fileName, LinkedList* listaPerros);
 
-
 #endif // PARSER_H_INCLUDED

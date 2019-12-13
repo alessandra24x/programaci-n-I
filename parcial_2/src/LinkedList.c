@@ -201,6 +201,7 @@ int ll_remove(LinkedList* this,int index) {
 		    	pAuxNode = getNode(this, index); // Obtengo el nodo del Node
 		    	pPreviousNode = getNode(this, index -1); // Obtengo el nodo del LinkedList -1 para llegar al nodo anterior
 		    	pPreviousNode->pNextNode = pAuxNode->pNextNode; //Al nodo anterior le asigno lo que esta en el nodo siguiente
+		    	free(pAuxNode);
 		    	this->size--; // Al campo Size se le disminuye en 1 su longitud
 		    	}
 		 	 	 returnAux = 0;

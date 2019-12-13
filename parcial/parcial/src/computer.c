@@ -18,7 +18,7 @@ Computer* computer_newParametros(char* idStr,char* descripcionStr,char* precioSt
     int setId = computer_setIdStr(aux, idStr);
     int setDescripcion = computer_setDescripcion(aux, descripcionStr);
     int setPrecio = computer_setPrecioStr(aux, precioStr);
-    int setIdTipo = computer_setIdTipo(aux, idTipoStr);
+    int setIdTipo = computer_setIdTipoStr(aux, idTipoStr);
     int setOferta = computer_setOferta(aux, ofertaStr);
 
     if (setId != 0) {
@@ -93,7 +93,7 @@ int computer_getId(Computer* this,int* id) {
 
 int computer_setDescripcion(Computer* this,char* descripcion) {
     int ret = -1;
-    if(this != NULL && isValidName(descripcion) == 0) {
+    if(this != NULL && isValidText(descripcion) == 0) {
       strncpy(this->descripcion,descripcion,sizeof(this->descripcion));
       ret = 0;
     }
@@ -176,75 +176,61 @@ int computer_getIdTipo(Computer* this,int* idTipo) {
     return ret;
 }
 
-int computer_setOfertaStr(Computer* this,char* ofertaStr) {
+int computer_setOferta(Computer* this,char* oferta) {
     int ret = -1;
-    int auxOferta;
-    if(this != NULL && ofertaStr != NULL) {
-      if(isValidNumber(ofertaStr) == 0) {
-        auxOferta = atoi(ofertaStr);
-        if(computer_setOferta(this, auxOferta) == 0) {
-        	computer_setOferta(this, auxOferta);
-          ret = 0;
-        }
-      }
+    if(this != NULL && isValidName(oferta) == 0) {
+    	strncpy(this->oferta,oferta,sizeof(this->oferta));
+    	ret = 0;
     }
     return ret;
 }
 
-int computer_setOferta(Computer* this,int oferta) {
-    int ret = -1;
-    if(this != NULL && oferta > 0) {
-      this->oferta = oferta;
-      ret = 0;
-    } else {
-    printf("error");
-    }
-    return ret;
-}
-
-int computer_getOferta(Computer* this,int* oferta) {
+int computer_getOferta(Computer* this,char* oferta) {
   int ret = -1;
   if(this != NULL && oferta != NULL) {
-    *oferta = this->oferta;
+	strcpy(oferta,this->oferta);
     ret = 0;
   }
   return ret;
 }
 
 int computer_compareIdTipo(void* pComputerA,void* pComputerB) {
-    int ret = 0;
-    if(strcmp(((Computer*)pComputerA)->idTipo,((Computer*)pComputerB)->idTipo) > 0) {
+	int ret = 0;
+	Computer* compA = (Computer*) pComputerA;
+	Computer* compB = (Computer*) pComputerB;
+	int tipo1;
+	int tipo2;
+
+	computer_getIdTipo(compA, &tipo1);
+	computer_getIdTipo(compB, &tipo2);
+
+    if(tipo1 > tipo2) {
         ret = 1;
-    }
-    if(strcmp(((Computer*)pComputerA)->idTipo,((Computer*)pComputerB)->idTipo) < 0) {
+    } else if(tipo1 < tipo2) {
         ret = -1;
     }
     return ret;
 }
 
-int computer_mapIdTipo(void* pComputer) {
-	int ret = 0;
-	char info[128];
-	if(((Computer*)pComputer)->idTipo == 2) {
-		info = "SIN DATOS";
-		computer_getOferta(pComputer, info);
-		ret = 1;
+void computer_mapIdTipo(void* pComputer) {
+	Computer* comp = (Computer*) pComputer;
+	if(comp->idTipo == 2) {
+		strcpy(comp->oferta, "SIN DATOS");
 	}
-	if(((Computer*)pComputer)->idTipo == 1 && ((Computer*)pComputer)->precio > 20000) {
-		computer_getOferta(pComputer, info);
-		ret = -1;
+	if(comp->idTipo == 1 && comp->precio > 20000) {
+		strcpy(comp->oferta, "50% DESCUENTO");
 	}
-	return ret;
 }
 
 int filtrar(void* computer) {
 	int returnAux = -1;
-	int comp;
+	int tipo;
 	if(computer != NULL) {
-		computer_getIdTipo(computer, comp);
-		if(comp == 1) {
+		computer_getIdTipo(computer, &tipo);
+		if(tipo == 1) {
 			returnAux = 0;
 		}
 	}
 	return returnAux;
 }
+

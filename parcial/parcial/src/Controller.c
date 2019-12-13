@@ -35,18 +35,27 @@ int controller_PrintComputers(LinkedList* pListaComputers, int index) {
 	char auxDescripcion[4096];
 	int auxPrecio;
 	int auxIdTipo;
-	int auxOferta;
+	char auxOferta[4096];
 
 	if(pListaComputers != NULL) {
+		printf("id      Descripcion      Precio    Tipo     Oferta \n");
+
 		auxComputer = ll_get(pListaComputers, index);
 		computer_getId(auxComputer, &auxId);
 		computer_getDescripcion(auxComputer, auxDescripcion);
 		computer_getPrecio(auxComputer, &auxPrecio);
 		computer_getIdTipo(auxComputer, &auxIdTipo);
-		computer_getOferta(auxComputer, &auxOferta);
+		computer_getOferta(auxComputer, auxOferta);
 
-		printf("ID: %d\n1.Descripcion: %s\n2.Precio: %d\n3.IDTipo: %d\n4.Oferta: %d\n",
-				auxId,auxDescripcion,auxPrecio,auxIdTipo, auxOferta);
+		printf("%d  --  %s  --  %d  --  ", auxId, auxDescripcion, auxPrecio);
+
+		if(auxIdTipo == 1){
+			printf("DESKTOP  --  ");
+		} else if(auxIdTipo == 2){
+			printf("LAPTOP  --  ");
+		}
+			printf("%s\n",auxOferta);
+
 		ret = 0;
 	}
 	return ret;
@@ -91,7 +100,7 @@ int controller_saveComputersAsText(FILE* pFile , LinkedList* pListaComputers) {
     char auxDescripcion[4096];
     int auxPrecio;
     int auxIdTipo;
-	  int auxOferta;
+	char auxOferta[4096];
     int i, len;
 
     if(pListaComputers != NULL && pFile != NULL) {
@@ -104,9 +113,9 @@ int controller_saveComputersAsText(FILE* pFile , LinkedList* pListaComputers) {
     		computer_getDescripcion(auxComputer, auxDescripcion);
     		computer_getPrecio(auxComputer, &auxPrecio);
     		computer_getIdTipo(auxComputer, &auxIdTipo);
-    		computer_getOferta(auxComputer, &auxOferta);
+    		computer_getOferta(auxComputer, auxOferta);
 
-    		fprintf(pFile,"%d,%s,%d,%d,%d\n", auxId, auxDescripcion, auxPrecio, auxIdTipo, auxOferta);
+    		fprintf(pFile,"%d,%s,%d,%d,%s\n", auxId, auxDescripcion, auxPrecio, auxIdTipo, auxOferta);
     		ret++;
     	}
 	fclose(pFile);

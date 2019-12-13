@@ -15,7 +15,7 @@ int parser_parseComputers(FILE* fileName, LinkedList* listaComputers) {
 		if(fileName != NULL && listaComputers != NULL) {
 			fscanf(fileName, "[^\n]\n");
 			while(!feof(fileName)) {
-				fscanf(fileName, "%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",auxId,
+				fscanf(fileName, "%[^,],%[^,],%[^,],%[^,],%[^\n]\n",auxId,
 	                    auxDescripcion,
 	                    auxPrecio,
 						auxIdTipo,

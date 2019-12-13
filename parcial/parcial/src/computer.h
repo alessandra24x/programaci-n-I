@@ -31,11 +31,12 @@ int computer_setIdTipo(Computer* this,int idTipo);
 int computer_getIdTipo(Computer* this,int* idTipo);
 
 int computer_setOfertaStr(Computer* this,char* ofertaStr);
-int computer_setOferta(Computer* this,int oferta);
-int computer_getOferta(Computer* this,int* oferta);
+int computer_setOferta(Computer* this,char* oferta);
+int computer_getOferta(Computer* this,char* oferta);
 
 int computer_compareIdTipo(void* pComputerA,void* pComputerB);
-int computer_mapIdTipo(void* pComputer);
+void computer_mapIdTipo(void* pComputer);
+int filtrar(void* computer);
 
 
 #endif // COMPUTER_H_INCLUDED
