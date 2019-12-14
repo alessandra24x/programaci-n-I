@@ -1,4 +1,4 @@
-int controller_loadFromText(char* path , LinkedList* pListaComputers);
+int controller_loadFromText(LinkedList* pListaComputers);
 int controller_PrintComputers(LinkedList* pListaComputers, int index);
 int controller_ListComputers(LinkedList* pListaComputers);
 int controller_saveComputersAsText(FILE* pFile , LinkedList* pListaComputers);

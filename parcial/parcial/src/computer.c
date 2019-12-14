@@ -13,13 +13,13 @@ Computer* computer_new() {
 Computer* computer_newParametros(char* idStr,char* descripcionStr,char* precioStr, char* idTipoStr, char* ofertaStr) {
 	Computer* aux;
 	aux = computer_new();
-	printf("newParam1\nId:%s\ndescripcion: %s\nprecio: %s\nidTipo: %s\noferta: %s\n\n", idStr, descripcionStr, precioStr, idTipoStr, ofertaStr);
+	printf("newParam\n \nId:%s\ndescripcion: %s\nprecio: %s\nidTipo: %s\noferta: %s\n\n", idStr, descripcionStr, precioStr, idTipoStr, ofertaStr);
 	if(aux != NULL) {
-    int setId = computer_setIdStr(aux, idStr);
-    int setDescripcion = computer_setDescripcion(aux, descripcionStr);
-    int setPrecio = computer_setPrecioStr(aux, precioStr);
-    int setIdTipo = computer_setIdTipoStr(aux, idTipoStr);
-    int setOferta = computer_setOferta(aux, ofertaStr);
+		int setId = computer_setIdStr(aux, idStr);
+		int setDescripcion = computer_setDescripcion(aux, descripcionStr);
+		int setPrecio = computer_setPrecioStr(aux, precioStr);
+		int setIdTipo = computer_setIdTipoStr(aux, idTipoStr);
+		int setOferta = computer_setOferta(aux, ofertaStr);
 
     if (setId != 0) {
       printf("Problema al cargar id\n");
@@ -216,8 +216,7 @@ void computer_mapIdTipo(void* pComputer) {
 	Computer* comp = (Computer*) pComputer;
 	if(comp->idTipo == 2) {
 		strcpy(comp->oferta, "SIN DATOS");
-	}
-	if(comp->idTipo == 1 && comp->precio > 20000) {
+	} else if(comp->idTipo == 1 && comp->precio > 20000) {
 		strcpy(comp->oferta, "50% DESCUENTO");
 	}
 }

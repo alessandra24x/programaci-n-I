@@ -27,16 +27,17 @@ int main()
         	    	  \n5. Salir\
         	    	  \n*****************************************************/");
 
-    	utn_getUnsignedInt("\nSeleccione opcion: ","Opcion invalida",1,sizeof(int),1,7,1,&option);
+    	utn_getUnsignedInt("\nSeleccione opcion: ","Opcion invalida",1,sizeof(int),1,5,1,&option);
 
     	switch(option) {
     			case 1:
-                    controller_loadFromText("datos_Fin.csv",listaComputers);
+                    controller_loadFromText(listaComputers);
                     break;
                 case 2:
                 	controller_sortComputers(listaComputers);
                     break;
                 case 3:
+                	controller_mapComputers(listaComputers);
                 	controller_ListComputers(listaComputers);
 
                 	break;

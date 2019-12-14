@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "LinkedList.h"
 #include "computer.h"
 
@@ -14,6 +15,7 @@ int parser_parseComputers(FILE* fileName, LinkedList* listaComputers) {
 
 		if(fileName != NULL && listaComputers != NULL) {
 			fscanf(fileName, "[^\n]\n");
+			fscanf(fileName, "%[^,],%[^,],%[^,],%[^\n]\n",auxId,auxDescripcion,auxPrecio,auxIdTipo);
 			while(!feof(fileName)) {
 				fscanf(fileName, "%[^,],%[^,],%[^,],%[^\n]\n",auxId,auxDescripcion,auxPrecio,auxIdTipo);
 				strcpy(auxOferta, "");

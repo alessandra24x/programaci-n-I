@@ -14,8 +14,12 @@
  * \return int
  *
  */
-int controller_loadFromText(char* path , LinkedList* pListaComputers) {
+int controller_loadFromText(LinkedList* pListaComputers) {
 	int ret = -1;
+	char path[32];
+	printf("\nIngrese nombre del archivo: ");
+	scanf("%s",path);
+	//utn_getChar("Introduzca el nombre del archivo.","Error",0,127,2, path);
 	FILE* pFile;
 	pFile = fopen(path, "r");
 	if(parser_parseComputers(pFile, pListaComputers)) {
@@ -38,7 +42,7 @@ int controller_PrintComputers(LinkedList* pListaComputers, int index) {
 	char auxOferta[4096];
 
 	if(pListaComputers != NULL) {
-		printf("id      Descripcion      Precio    Tipo     Oferta \n");
+		printf("\nid              Descripcion                                Precio           Tipo         Oferta \n\n");
 
 		auxComputer = ll_get(pListaComputers, index);
 		computer_getId(auxComputer, &auxId);
