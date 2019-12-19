@@ -214,9 +214,13 @@ int computer_compareIdTipo(void* pComputerA,void* pComputerB) {
 
 void computer_mapIdTipo(void* pComputer) {
 	Computer* comp = (Computer*) pComputer;
-	if(comp->idTipo == 2) {
+	int tipo, precio;
+	computer_getIdTipo(comp, &tipo);
+	computer_getPrecio(comp, &precio);
+
+	if(tipo == 2) {
 		strcpy(comp->oferta, "SIN DATOS");
-	} else if(comp->idTipo == 1 && comp->precio > 20000) {
+	} else if(tipo == 1 && precio > 20000) {
 		strcpy(comp->oferta, "50% DESCUENTO");
 	}
 }
