@@ -17,7 +17,9 @@ int parser_parseLogs(FILE* fileName, LinkedList* listaLogs) {
   LogEntry* pLogEntry;
 
   int lineNumber = 1;
+  printf("hola\n");
   if(fileName != NULL && listaLogs != NULL) {
+    printf("aca hay problemas\n");
 	//fscanf(fileName, "%*[^\n]\n"); //skipeo la primera linea del archivo
 
     while(!feof(fileName)) { //mientras no haya llegado al final del archivo
@@ -33,6 +35,7 @@ int parser_parseLogs(FILE* fileName, LinkedList* listaLogs) {
       // Construye un nuevo log, le setea los valores y devuelve un puntero de tipo void
 
       if(pLogEntry != NULL && ll_add(listaLogs, pLogEntry) == 0) {
+        printf("todo bien\n");
           ret++; //retorna la cantidad de logs "agregados" a LinkedList
       } else {
         printf("NULL | LINE_NUMBER = %d", lineNumber);

@@ -22,6 +22,7 @@ int controller_loadLogsFromText(char* path , LinkedList* pListaLog) {
 	pFile = fopen(path, "r"); //se abre el archivo en modo lectura
 	printf("llegue acaaa");
 	if(parser_parseLogs(pFile, pListaLog)) {
+		printf("parser problematico \n");
 		ret = 0;
 		printf("Lista cargada exitosamente");
 	} else {
