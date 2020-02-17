@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "bike.h"
+#include "logs.h"
+#include "services.h"
 #include "LinkedList.h"
 #include "Controller.h"
 #include "utn.h"
@@ -9,10 +10,11 @@
 int main(void) {
   int option = 0;
 
-  LinkedList* listaBikes;
-  LinkedList* listaBikesFiltradas;
+  LinkedList* listaLog;
+  LinkedList* listaServices;
 
-  listaBikes = ll_newLinkedList();
+  listaLog = ll_newLinkedList();
+  listaServices = ll_newLinkedList();
 
   do {
 	  printf("/****************************************************\
@@ -28,7 +30,8 @@ int main(void) {
 
 	  switch(option) {
 	  case 1:
-		  controller_loadFromText("bikes.csv", listaBikes);
+		  controller_loadLogsFromText("log.csv" , listaLog);
+		  //controller_loadServicesFromText("services.txt", listaServices);
 		  //ll_map(listaBikes,bike_calcularVelocidadP);
 		  break;
 	  case 2:
@@ -43,9 +46,6 @@ int main(void) {
 		  }*/
 		  break;
 	  case 4:
-		  //controller_sortBike(listaBikes);
-		  break;
-	  case 5:
 		  break;
 	  default:
 		  printf("Opcion invalida");
