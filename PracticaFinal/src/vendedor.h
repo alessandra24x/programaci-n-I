@@ -38,4 +38,9 @@ int vendedor_setComisionesStr(Vendedor* this,char* comisionesStr);
 int vendedor_setComisiones(Vendedor* this,float comisiones);
 int vendedor_getComisiones(Vendedor* this,float* comisiones);
 
+void *calcularComisiones(void *pVendedor);
+int filtrarJuniors(void* pVendedor);
+int filtrarStandards(void* pVendedor);
+int filtrarExpertos(void* pVendedor);
+
 #endif // VENDEDOR_H_INCLUDED
