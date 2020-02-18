@@ -29,21 +29,21 @@ int main(void) {
 	  switch(option) {
 	  case 1:
 		  controller_loadFromText("bikes.csv", listaBikes);
-		  //ll_map(listaBikes,bike_calcularVelocidadP);
+		  ll_map(listaBikes,bike_calcularVelocidadP);
 		  break;
 	  case 2:
-		  //controller_ListBikes(listaBikes);
+		  controller_ListBikes(listaBikes);
 		  break;
 	  case 3:
-		  /*listaBikesFiltradas = ll_filter(listaBikes,filtrar);
+		  listaBikesFiltradas = ll_filter(listaBikes,filtrar);
 		  if(controller_saveAsText("bikesFiltradas.csv",listaBikesFiltradas) == 0) {
 			  printf("\nArchivo generado correctamente\n");
 		  } else {
 			  printf("Error generando archivo\n");
-		  }*/
+		  }
 		  break;
 	  case 4:
-		  //controller_sortBike(listaBikes);
+		  controller_sortBike(listaBikes);
 		  break;
 	  case 5:
 		  break;

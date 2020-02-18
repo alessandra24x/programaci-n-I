@@ -33,6 +33,7 @@ int parser_parseBikes(FILE* fileName, LinkedList* listaBikes) {
       // Construye una nueva bike, le setea los valores y devuelve un puntero de tipo void
 
       if(pBike != NULL && ll_add(listaBikes, pBike) == 0) {
+        printf("todo bien\n");
           ret++; //retorna la cantidad de Bikes "agregadas" a LinkedList
       } else {
         printf("NULL | LINE_NUMBER = %d", lineNumber);

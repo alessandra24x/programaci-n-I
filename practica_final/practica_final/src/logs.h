@@ -32,4 +32,6 @@ int logEntry_getGravedad(LogEntry* this,int* gravedad);
 int logEntry_setMsg(LogEntry* this,char* msg);
 int logEntry_getMsg(LogEntry* this,char* msg);
 
+int filtrarGravedad(void* pLogEntry);
+
 #endif // LOGS_H_INCLUDED

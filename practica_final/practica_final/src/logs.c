@@ -44,7 +44,6 @@ LogEntry* logEntry_newParametros(char* date,char* time,char* serviceIdStr, char*
 			printf("Problema al cargar msg");
 			return NULL;
 		}
-
 	}
 	return aux;
 }
@@ -178,6 +177,20 @@ int logEntry_getMsg(LogEntry* this,char* msg) {
     return ret;
 }
 
+int filtrarGravedad(void* pLogEntry) {
+	LogEntry* log = (LogEntry*) pLogEntry;
+	int returnAux = -1;
+	int gravedad, serviceId;
+
+	if(pLogEntry != NULL) {
+		gravedad = log->gravedad;
+		serviceId = log->serviceId;
+		if(gravedad == 3 && serviceId != 45) {
+			returnAux = 0;
+		}
+	}
+	return returnAux;
+}
 
 
 
