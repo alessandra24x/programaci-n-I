@@ -3,6 +3,6 @@
 
 #include "LinkedList.h"
 
-int parser_parseVendedores(FILE* fileName, LinkedList* listaVendedores)
+int parser_parseVendedores(FILE* fileName, LinkedList* listaVendedores);
 
 #endif // PARSER_H_INCLUDED

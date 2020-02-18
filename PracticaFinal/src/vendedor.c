@@ -1,7 +1,8 @@
-#include "vendedor.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "vendedor.h"
 #include "LinkedList.h"
 #include "utn.h"
 
@@ -181,7 +182,7 @@ int vendedor_setMontoStr(Vendedor* this,char* montoStr) {
     int ret = -1;
     int auxMonto;
     if(this != NULL && montoStr != NULL) {
-        if(isValidNumber(montoStr) == 0) {
+        if(isValidFloatNumber(montoStr) == 0) {
             auxMonto = atof(montoStr);
             if(vendedor_setMonto(this, auxMonto) == 0) {
                 ret = 0;
@@ -213,7 +214,7 @@ int vendedor_setComisionesStr(Vendedor* this,char* comisionesStr) {
     int ret = -1;
     int auxComisiones;
     if(this != NULL && comisionesStr != NULL) {
-        if(isValidNumber(comisionesStr) == 0) {
+        if(isValidFloatNumber(comisionesStr) == 0) {
             auxComisiones = atof(comisionesStr);
             if(vendedor_setComisiones(this, auxComisiones) == 0) {
                 ret = 0;

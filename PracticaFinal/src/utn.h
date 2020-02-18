@@ -14,3 +14,6 @@ int isValidText(char* stringRecibido);
 
 int utn_getChar(char* msg, char* msgError, int min, int max, int reintentos, char* resultado);
 int isValidChar(char charRecibido);
+
+int utn_getFloat(char* msg, char* msgError, int minSize, int maxSize, int min, int max, int reintentos, float* input);
+int isValidFloatNumber(char* stringRecibido);

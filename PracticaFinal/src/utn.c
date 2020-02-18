@@ -308,3 +308,56 @@ int isValidChar(char charRecibido) {
         retorno = -1;
     return retorno;
 }
+
+/**
+* \brief Solicita un float al usuario y lo devuelve
+* \param msg Mensaje a ser mostrado
+* \param msgError Mensaje a ser mostrado en caso de error
+* \param minSize cantidad minimo de elementos que tendrá el array
+* \param maxSize cantidad máxima de elementos que tendrá el array
+* \param min Cantidad minima de elementos que recibirá el string
+* \param max Cantidad máxima de elementos que recibirá el string
+* \param reintentos Cantidad de reintentos que el usuario tendrá
+* \param input Array donde se cargará el float ingresado
+* \return 0 si efectivamente el numero es un float
+*/
+int utn_getFloat(char* msg, char* msgError, int minSize, int maxSize, int min, int max, int reintentos, float* input) {
+    int retorno = -1;
+    char bufferStr[maxSize];
+
+    if(msg != NULL && msgError != NULL && minSize < maxSize && min < max && reintentos >= 0 && input != NULL) {
+        do {
+            if(getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr) == 0) {
+                if(isValidFloatNumber(bufferStr) == 0) {
+                    *input=atof(bufferStr); // atof array to float
+                    retorno=0;
+                    break;
+                }
+                else {
+                    printf("%s",msgError);
+                    reintentos--;
+                }
+            }
+        }
+        while(reintentos>=0);
+    }
+    return retorno;
+}
+
+/**
+* \brief Recibe un string y verifica que esté en el rango numerico del teclado
+* \param stringRecibido string a verificar
+* \return 0 si el string esta en un rango numerico
+*/
+int isValidFloatNumber(char* stringRecibido)
+{
+    int retorno = 0;
+    int i;
+    for(i = 0; stringRecibido[i]!='\0'; i++) {
+        if((stringRecibido[i] < '0' || stringRecibido[i] > '9') && (stringRecibido[i] != '.')) {
+            retorno = 1;
+            break;
+        }
+    }
+    return retorno;
+}
