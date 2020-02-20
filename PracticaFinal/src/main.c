@@ -10,7 +10,7 @@
 int main(void)
 {
 	int option = 0;
-	int optionNivel;
+	int optionNivel = -1;
 	char answer[32];
 
 	LinkedList *listaVendedores;
@@ -45,7 +45,7 @@ int main(void)
 		case 3:
 			ll_map(listaVendedores, calcularComisiones);
 			printf("Comisiones generadas correctamente, ¿desea ver la lista?\n S/N\n");
-			gets(answer);
+			scanf("%s",answer);
 			if (strcpy(answer, "S"))
 			{
 				controller_ListVendedores(listaVendedores);

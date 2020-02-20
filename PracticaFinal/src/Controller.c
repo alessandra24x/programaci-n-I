@@ -19,7 +19,7 @@ int controller_loadFromText(LinkedList *pListaVendedores)
 	FILE *pFile;
 	char path[20];
 	printf("\nIngrese el nombre y ruta del archivo que desea abrir: ");
-	gets(path);
+	scanf("%s",path);
 	pFile = fopen(path, "r"); //se abre el archivo en modo lectura
 	if (parser_parseVendedores(pFile, pListaVendedores))
 	{

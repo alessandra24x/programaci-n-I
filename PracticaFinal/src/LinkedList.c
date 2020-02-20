@@ -511,7 +511,8 @@ LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void* pElement)) {
 
 	return returnAux;
 }
-
+//devuelve el mismo nro de elementos
+//recibe valores y transforma valores
 LinkedList* ll_map(LinkedList* this,void*(*pFunc)(void* pElement)) {
 	LinkedList* returnAux = NULL;
 	int i;

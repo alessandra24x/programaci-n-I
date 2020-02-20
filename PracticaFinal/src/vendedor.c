@@ -327,14 +327,14 @@ void *calcularComisiones(void *pVendedor)
 int filtrarJuniors(void *pVendedor)
 {
 	Vendedor *seller = (Vendedor *)pVendedor;
-	int returnAux = -1;
+	int returnAux = 0;
 	int nivel;
 	if (pVendedor != NULL)
 	{
 		nivel = seller->nivel;
 		if (nivel == 0)
 		{
-			returnAux = 0;
+			returnAux = 1;
 		}
 	}
 	return returnAux;
@@ -343,14 +343,14 @@ int filtrarJuniors(void *pVendedor)
 int filtrarStandards(void *pVendedor)
 {
 	Vendedor *seller = (Vendedor *)pVendedor;
-	int returnAux = -1;
+	int returnAux = 0;
 	int nivel;
 	if (pVendedor != NULL)
 	{
 		nivel = seller->nivel;
 		if (nivel == 1)
 		{
-			returnAux = 0;
+			returnAux = 1;
 		}
 	}
 	return returnAux;
@@ -359,14 +359,14 @@ int filtrarStandards(void *pVendedor)
 int filtrarExpertos(void *pVendedor)
 {
 	Vendedor *seller = (Vendedor *)pVendedor;
-	int returnAux = -1;
+	int returnAux = 0;
 	int nivel;
 	if (pVendedor != NULL)
 	{
 		nivel = seller->nivel;
 		if (nivel == 2)
 		{
-			returnAux = 0;
+			returnAux = 1;
 		}
 	}
 	return returnAux;
