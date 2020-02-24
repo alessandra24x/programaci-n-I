@@ -36,7 +36,7 @@ int main(void)
 		switch (option)
 		{
 		case 1:
-			controller_loadFromText(listaVendedores);
+			controller_loadFromText("data.csv", listaVendedores);
 			//ll_map(listaBikes,bike_calcularVelocidadP);
 			break;
 		case 2:

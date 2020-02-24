@@ -20,13 +20,13 @@ int main(void)
 		printf("/****************************************************\
 	          	    	  \nMenu:\
 	          	    	  \n1. Cargar Archivo\
-	          	    	  \n2. Imprimir Vendedores\
-	          	    	  \n\n3. Calcular Comisiones\
-	          	    	  \n4. Generar archivo de comisiones para nivel\
+	          	    	  \n2. Ordenar Ascendente\
+	          	    	  \n\n3. Ordenar Descendente\
+	          	    	  \n4. Ordenar segun longitud\
 	          	    	  \n5. Salir\
 	          	    	  \n*****************************************************/");
 
-		utn_getUnsignedInt("\nSeleccione opcion: ", "Opcion invalida", 1, sizeof(int), 1, 5, 1, &option);
+		utn_getUnsignedInt("\nSeleccione opcion: ", "Opcion invalida", 1, sizeof(int), 1, 6, 1, &option);
 
 		switch (option)
 		{
@@ -34,9 +34,12 @@ int main(void)
 			controller_loadFromText("examen.txt",listaPalabra);
 			break;
 		case 2:
+			ll_sort(listaPalabra,palabra_sortLetras,1);
 			controller_ListPalabra(listaPalabra);
 			break;
 		case 3:
+			ll_sort(listaPalabra,palabra_sortLetras,0);
+			controller_ListPalabra(listaPalabra);
 			/*ll_map(listaPalabra, calcularComisiones);
 			printf("Comisiones generadas correctamente, ¿desea ver la lista? S/N\n");
 			gets(answer);
@@ -46,11 +49,14 @@ int main(void)
 			}*/
 			break;
 		case 4:
+			ll_sort(listaPalabra,palabra_sortLongitudLetras,1);
+			controller_ListPalabra(listaPalabra);
+			contadorLetrasDistintas(listaPalabra);
 			break;
 		default:
 			printf("Opcion invalida");
 		}
-	} while (option != 4);
+	} while (option != 5);
 
 	return 0;
 }

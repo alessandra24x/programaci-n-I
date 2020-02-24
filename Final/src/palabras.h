@@ -13,6 +13,9 @@ int palabra_delete(Palabra* this);
 //char
 int palabra_setLetras(Palabra* this,char* letras);
 int palabra_getLetras(Palabra* this,char* letras);
+int palabra_sortLetras(void* pLetraA,void* pLetraB);
+int palabra_sortLongitudLetras(void* pLetraA, void* pLetraB);
+int contadorLetrasDistintas(void* pLetra);
 
 
 

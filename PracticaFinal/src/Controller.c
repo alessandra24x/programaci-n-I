@@ -13,13 +13,13 @@
  * \return int
  *
  */
-int controller_loadFromText(LinkedList *pListaVendedores)
+int controller_loadFromText(char path, LinkedList *pListaVendedores)
 {
 	int ret = -1;
 	FILE *pFile;
-	char path[20];
-	printf("\nIngrese el nombre y ruta del archivo que desea abrir: ");
-	scanf("%s",path);
+	//char path[20];
+	//printf("\nIngrese el nombre y ruta del archivo que desea abrir: ");
+	//scanf("%s",path);
 	pFile = fopen(path, "r"); //se abre el archivo en modo lectura
 	if (parser_parseVendedores(pFile, pListaVendedores))
 	{

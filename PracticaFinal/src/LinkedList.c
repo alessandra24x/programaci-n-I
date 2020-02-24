@@ -494,6 +494,8 @@ void swapNode(Node *a, Node *b) {
 	b->pElement = temp;
 }
 
+//recibe una función que devuelve true o false
+//todo lo que sea true lo va agregar a una lista nueva descartando todo lo que sea false
 LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void* pElement)) {
 	LinkedList* returnAux = NULL;
 	int i;

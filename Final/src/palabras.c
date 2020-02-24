@@ -20,14 +20,12 @@ Palabra* palabra_newParametros(char* letras) {
 			printf("Problema al cargar letras\n");
 			return NULL;
 		}
-
-
 	}
 	return aux;
 }
 
 
-/*int palabra_delete(Palabra *this)
+int palabra_delete(Palabra *this)
 {
 	int ret = -1;
 	if (this != NULL)
@@ -36,12 +34,12 @@ Palabra* palabra_newParametros(char* letras) {
 		ret = 0;
 	}
 	return ret;
-}*/
+}
 
 int palabra_setLetras(Palabra *this, char *letras)
 {
 	int ret = -1;
-	if (this != NULL == 0)
+	if (this != NULL)
 	{
 		strncpy(this->letras, letras, sizeof(this->letras));
 		ret = 0;
@@ -58,4 +56,43 @@ int palabra_getLetras(Palabra *this, char *letras)
 		ret = 0;
 	}
 	return ret;
+}
+
+int palabra_sortLetras(void* pLetraA,void* pLetraB) {
+	int ret = 0;
+	if(strcmp(((Palabra*)pLetraA)->letras,((Palabra*)pLetraB)->letras) > 0) {
+		ret = 1;
+	}
+	if(strcmp(((Palabra*)pLetraA)->letras,((Palabra*)pLetraB)->letras) < 0) {
+		ret = -1;
+	}
+
+	return ret;
+}
+
+int palabra_sortLongitudLetras(void* pLetraA, void* pLetraB) {
+	int ret = 0;
+	if(strlen(((Palabra*) pLetraA)->letras) > (strlen(((Palabra*) pLetraB)->letras))) {
+		ret = 1;
+	}
+	/*if(strlen(((Palabra*) pLetraA)->letras) == (strlen(((Palabra*) pLetraB)->letras))) {
+		ret = palabra_sortLetras(((Palabra*)pLetraA)->letras,((Palabra*)pLetraB)->letras);
+	}*/
+
+	return ret;
+}
+
+int contadorLetrasDistintas(void* pLetra) {
+	char* letra = ((Palabra*)pLetra)->letras;
+	//int letrasDistintas[128];
+	int contadorLetras = 0;
+
+	for(int i = 0; i < strlen(letra); i++) {
+		if(letra[i] != letra[i]) {
+			contadorLetras++;
+			//letrasDistintas[i] = contadorLetras;
+			printf("%d", contadorLetras);
+		}
+	}
+	return contadorLetras;
 }
