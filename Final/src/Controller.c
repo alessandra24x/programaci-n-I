@@ -31,13 +31,12 @@ int controller_PrintPalabra(LinkedList *pListaPalabra, int index)
 {
 	int ret = -1;
 	Palabra *auxPalabra;
-	char auxLetras[4096];
+	char auxLetras[1024];
 
 	if (pListaPalabra != NULL)
 	{
 		auxPalabra = ll_get(pListaPalabra, index);
 		palabra_getLetras(auxPalabra, auxLetras);
-
 		printf("Letras: %s\n",
 			   auxLetras);
 		ret = 0;
@@ -87,22 +86,18 @@ int controller_savePalabraAsText(FILE *pFile, LinkedList *pListaPalabra)
 {
 	int ret = 0;
 	Palabra *auxPalabra;
-	char auxLetras[4096];
+	char auxLetras[1024];
 	int i, len;
 
 	if (pListaPalabra != NULL && pFile != NULL)
 	{
-		//fprintf recibe como primer parametro puntero de archivo al archivo donde se escribirá la salida formateada.
-		//escribe datos formateados en el archivo
-		fprintf(pFile, "letras\n");
+		fprintf(pFile, "letras, palabra original, num letras\n");
 		len = ll_len(pListaPalabra);
 
 		for (i = 0; i < len; i++)
 		{
 			auxPalabra = ll_get(pListaPalabra, i);
-
 			palabra_getLetras(auxPalabra, auxLetras);
-
 			fprintf(pFile, "%s\n", auxLetras);
 			ret++;
 		}

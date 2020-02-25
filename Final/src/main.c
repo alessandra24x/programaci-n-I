@@ -12,6 +12,7 @@ int main(void)
 	int option = 0;
 
 	LinkedList *listaPalabra;
+	LinkedList *palabrasOrdenadas;
 
 	listaPalabra = ll_newLinkedList();
 
@@ -23,7 +24,8 @@ int main(void)
 	          	    	  \n2. Ordenar Ascendente\
 	          	    	  \n\n3. Ordenar Descendente\
 	          	    	  \n4. Ordenar segun longitud\
-	          	    	  \n5. Salir\
+						  \n5. Ordenar segun longitud caracteres distintos\
+	          	    	  \n6. Salir\
 	          	    	  \n*****************************************************/");
 
 		utn_getUnsignedInt("\nSeleccione opcion: ", "Opcion invalida", 1, sizeof(int), 1, 6, 1, &option);
@@ -40,23 +42,22 @@ int main(void)
 		case 3:
 			ll_sort(listaPalabra,palabra_sortLetras,0);
 			controller_ListPalabra(listaPalabra);
-			/*ll_map(listaPalabra, calcularComisiones);
-			printf("Comisiones generadas correctamente, ¿desea ver la lista? S/N\n");
-			gets(answer);
-			if (strcpy(answer, "S"))
-			{
-				controller_ListPalabra(listaPalabra);
-			}*/
 			break;
 		case 4:
 			ll_sort(listaPalabra,palabra_sortLongitudLetras,1);
 			controller_ListPalabra(listaPalabra);
-			contadorLetrasDistintas(listaPalabra);
+			break;
+		case 5:
+			palabrasOrdenadas = ll_map(listaPalabra, contadorLetrasDistintas);
+			ll_sort(palabrasOrdenadas, comparaPalabras, 1);
+			controller_ListPalabra(palabrasOrdenadas);
+			break;
+		case 6:
 			break;
 		default:
 			printf("Opcion invalida");
 		}
-	} while (option != 5);
+	} while (option != 6);
 
 	return 0;
 }

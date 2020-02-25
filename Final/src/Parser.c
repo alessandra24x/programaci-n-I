@@ -19,18 +19,14 @@ int parser_parsePalabra(FILE *fileName, LinkedList *listaPalabra)
     //fscanf(fileName,"%*[^\n]\n"); //skipeo la primera linea del archivo
 
     while (!feof(fileName))
-    { //mientras no haya llegado al final del archivo
-      //fscanf Recibe como primer parametro el puntero al archivo
-      //leemos del archivo una cadena de caracteres. "Agarra cualquier caracter que no sea la ,"
-      //Cada llamada a fscanf() lee una línea del archivo.
+    {
       fscanf(fileName, "%[^\n]\n",
              auxLetras);
       pPalabra = palabra_newParametros(auxLetras);
-      // Construye un nuevo vendedor, le setea los valores y devuelve un puntero de tipo void
 
       if (pPalabra != NULL && ll_add(listaPalabra, pPalabra) == 0)
       {
-        ret++; //retorna la cantidad de Vendedores "agregados" a LinkedList
+        ret++;
       }
       else
       {

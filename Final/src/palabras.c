@@ -16,6 +16,7 @@ Palabra* palabra_newParametros(char* letras) {
 	aux = palabra_new();
 	if(aux != NULL) {
 		int setLetras = palabra_setLetras(aux, letras);
+
 		if (setLetras != 0){
 			printf("Problema al cargar letras\n");
 			return NULL;
@@ -23,7 +24,6 @@ Palabra* palabra_newParametros(char* letras) {
 	}
 	return aux;
 }
-
 
 int palabra_delete(Palabra *this)
 {
@@ -75,24 +75,50 @@ int palabra_sortLongitudLetras(void* pLetraA, void* pLetraB) {
 	if(strlen(((Palabra*) pLetraA)->letras) > (strlen(((Palabra*) pLetraB)->letras))) {
 		ret = 1;
 	}
-	/*if(strlen(((Palabra*) pLetraA)->letras) == (strlen(((Palabra*) pLetraB)->letras))) {
+	if(strlen(((Palabra*) pLetraA)->letras) == (strlen(((Palabra*) pLetraB)->letras))) {
 		ret = palabra_sortLetras(((Palabra*)pLetraA)->letras,((Palabra*)pLetraB)->letras);
-	}*/
+	}
 
 	return ret;
 }
 
-int contadorLetrasDistintas(void* pLetra) {
-	char* letra = ((Palabra*)pLetra)->letras;
-	//int letrasDistintas[128];
+void* contadorLetrasDistintas(void* pPalabra) {
+	Palabra* retval = (Palabra*) pPalabra;
+	char palabra[1024];
+	strcpy(palabra, pPalabra);
+	
 	int contadorLetras = 0;
+	char letras_sin_repeticion[strlen(palabra)];
 
-	for(int i = 0; i < strlen(letra); i++) {
-		if(letra[i] != letra[i]) {
+	for(int i = 0; i < strlen(palabra); i++) {
+		int encontrado = 0;
+		for(int j = 0; j < contadorLetras; j++) {
+			if(palabra[i] == letras_sin_repeticion[j]) {
+				encontrado = 1;
+			}
+		}
+		if(encontrado == 0) {
+			letras_sin_repeticion[contadorLetras] = palabra[i];
 			contadorLetras++;
-			//letrasDistintas[i] = contadorLetras;
-			printf("%d", contadorLetras);
 		}
 	}
-	return contadorLetras;
+	letras_sin_repeticion[contadorLetras] = '\0';
+
+    strcpy(retval->letrasSinRepeticiones, letras_sin_repeticion);
+    strcpy(retval->letras, palabra);
+    retval->numLetras = contadorLetras;
+
+    return retval;
+}
+
+int comparaPalabras(void* pPalabra1, void* pPalabra2)
+{
+    Palabra *palabra1 = (Palabra *) pPalabra1;
+    Palabra *palabra2 = (Palabra *) pPalabra2;
+
+    if(palabra1->numLetras == palabra2->numLetras) {
+        return strcmp(palabra1->letras, palabra2->letras);
+    }
+
+    return palabra1->numLetras > palabra2->numLetras;
 }
