@@ -35,7 +35,7 @@ int palabra_delete(Palabra *this)
 	}
 	return ret;
 }
-
+//char
 int palabra_setLetras(Palabra *this, char *letras)
 {
 	int ret = -1;
@@ -57,6 +57,87 @@ int palabra_getLetras(Palabra *this, char *letras)
 	}
 	return ret;
 }
+//int
+/*int vendedor_setIdStr(Vendedor *this, char *idStr)
+{
+	int ret = -1;
+	int auxId;
+	if (this != NULL && idStr != NULL)
+	{
+		if (isValidNumber(idStr) == 0)
+		{
+			auxId = atoi(idStr);
+			if (vendedor_setId(this, auxId) == 0)
+			{
+				ret = 0;
+			}
+		}
+	}
+	return ret;
+}
+
+int vendedor_setId(Vendedor *this, int id)
+{
+	int ret = -1;
+	if (this != NULL && id >= 0)
+	{
+		this->id = id;
+		ret = 0;
+	}
+	return ret;
+}
+
+int vendedor_getId(Vendedor *this, int *id)
+{
+	int ret = -1;
+	if (this != NULL && id != NULL)
+	{
+		*id = this->id;
+		ret = 0;
+	}
+	return ret;
+}*/
+
+//float
+/*int vendedor_setMontoStr(Vendedor *this, char *montoStr)
+{
+	int ret = -1;
+	int auxMonto;
+	if (this != NULL && montoStr != NULL)
+	{
+		if (isValidFloatNumber(montoStr) == 0)
+		{
+			auxMonto = atof(montoStr);
+			if (vendedor_setMonto(this, auxMonto) == 0)
+			{
+				ret = 0;
+			}
+		}
+	}
+	return ret;
+}
+
+int vendedor_setMonto(Vendedor *this, float monto)
+{
+	int ret = -1;
+	if (this != NULL && monto >= 0)
+	{
+		this->monto = monto;
+		ret = 0;
+	}
+	return ret;
+}
+
+int vendedor_getMonto(Vendedor *this, float *monto)
+{
+	int ret = -1;
+	if (this != NULL && monto != NULL)
+	{
+		*monto = this->monto;
+		ret = 0;
+	}
+	return ret;
+}*/
 
 int palabra_sortLetras(void* pPalabra1,void* pPalabra2) {
 	Palabra *palabra1 = (Palabra *) pPalabra1;

@@ -16,10 +16,10 @@ int palabra_delete(Palabra* this);
 int palabra_setLetras(Palabra* this,char* letras);
 int palabra_getLetras(Palabra* this,char* letras);
 
-int palabra_sortLetras(void* pPalabra1, void* pPalabra2);
-int palabra_sortLongitudLetras(void* pPalabra1, void* pPalabra2);
+int palabra_sortLetras(void* pLetraA,void* pLetraB);
+int palabra_sortLongitudLetras(void* pLetraA, void* pLetraB);
 
-void* contadorLetrasDistintas(void* pPalabra);
+void* contadorLetrasDistintas(void* pLetra);
 int comparaPalabras(void* pPalabra1, void* pPalabra2);
 
 #endif // PALABRAS_H_INCLUDED
