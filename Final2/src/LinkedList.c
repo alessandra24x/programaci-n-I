@@ -3,7 +3,7 @@
 #include <string.h>
 #include "LinkedList.h"
 
-#include "palabras.h"
+#include "libro.h"
 
 static Node* getNode(LinkedList* this, int nodeIndex);
 static int addNode(LinkedList* this, int nodeIndex,void* pElement);
@@ -423,45 +423,6 @@ LinkedList* ll_clone(LinkedList* this) {
 	return cloneArray;
 }
 
-
-/** \brief Ordena los elementos de la lista utilizando la funcion criterio recibida como parametro
- * \param pList LinkedList* Puntero a la lista
- * \param pFunc (*pFunc) Puntero a la funcion criterio
- * \param order int  [1] Indica orden ascendente - [0] Indica orden descendente
- * \return int Retorna  (-1) Error: si el puntero a la listas es NULL
-                                ( 0) Si ok
- */
-/*int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order) {
-    int returnAux = -1;
-    int i, swap;
-    Node* buffer1;
-    Node* buffer2;
-
-    if(this != NULL && pFunc != NULL && ll_len(this) > 1 && (order == 1 || order == 0)) {
-    	do {
-    		swap = 0;
-    		for(i = 0; i < ll_len(this)-1; i++) {
-    			buffer1 = getNode(this, i);
-    			buffer2 = getNode(this, i+1);
-
-    			if(order == 0 && pFunc(buffer1->pElement, buffer2->pElement) < 0) {
-    				swapNode(buffer1, buffer2);
-    				swap = 1;
-    			}
-    			if( order == 1 && pFunc(buffer1->pElement, buffer2->pElement) > 0) {
-    				swapNode(buffer1, buffer2);
-    				swap = 1;
-    			}
-    		}
-    	}while(swap != 0);
-
-    	returnAux = 0;
-    }
-
-    return returnAux;
-
-}*/
-
 int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order) {
 	int returnAux = -1;
 	int i, swap, comparison;
@@ -511,8 +472,8 @@ LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void* pElement)) {
 
 	return returnAux;
 }
-//devuelve el mismo nro de elementos
-//recibe valores y transforma valores
+
+
 LinkedList* ll_map(LinkedList* this,void*(*pFunc)(void* pElement)) {
 	LinkedList* returnAux = NULL;
 	int i;

@@ -1,5 +1,5 @@
-int controller_loadFromText(char* path, LinkedList* pListaPalabra);
-int controller_ListPalabra(LinkedList* pListaPalabra);
-int controller_PrintPalabra(LinkedList* pListaPalabra, int index);
-int controller_controller_savePalabraAsText(FILE* pFile , LinkedList* pListaPalabra);
-int controller_saveAsText(char* fileName,LinkedList* listaPalabra);
+int controller_loadFromText(LinkedList *pListaLibro);
+int controller_PrintLibro(LinkedList *pListaLibro, int index);
+int controller_ListLibro(LinkedList *pListaLibro);
+int controller_saveLibroAsText(FILE *pFile, LinkedList *pListaLibro);
+int controller_saveAsText(char *fileName, LinkedList *pListaLibro);

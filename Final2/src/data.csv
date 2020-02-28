@@ -1,0 +1,31 @@
+id,titulo,autor,precio,editorialId
+1,Manuel Belgrano,Pigna,310,Planeta
+2,Matematica... �estas ahi?,Paenza,350,SIGLO XXI EDITORES
+3,Como programar en Java,Deitel & Deitel,1000,Pearson
+4,El se�or de los anillos - La comunidad del anillo,Tolkien,800,Minotauro
+5,Harry Potter Y La Piedra Filosofal,Rowling,800,SALAMANDRA
+6,Las aventuras de pinocho,Collodi Carlo,300,PENGUIN BOOKS
+7,La voz del gran jefe,Pigna,500,Planeta
+8,Matematica... �estas ahi? Episodio 2,Paenza,150,SIGLO XXI EDITORES
+9,Como programar en C++,Deitel & Deitel,1000,Pearson
+10,El se�or de los anillos - Las dos torres,Tolkien,800,Minotauro
+11,Harry Potter y la camara secreta,Rowling,800,SALAMANDRA
+12,El mago de Oz,Baum Frank,300,PENGUIN BOOKS
+13,La vida por la patria,Pigna,250,Planeta
+14,Matematica... �estas ahi? Episodio 3.14,Paenza,350,SIGLO XXI EDITORES
+15,El se�or de los anillos - El retorno del rey,Tolkien,800,Minotauro
+16,Harry Potter y el prisionero de Azkaban,Rowling,800,SALAMANDRA
+17,Los Viajes De Gulliver,Swift Jonathan,300,PENGUIN BOOKS
+18,Libertadores de America,Pigna,500,Planeta
+19,Matematica... �estas ahi? Episodio 100,Pigna,150,SIGLO XXI EDITORES
+20,El hobbit,Tolkien,800,Minotauro
+21,Harry Potter y el c�liz de fuego,Rowling,800,SALAMANDRA
+22,Alicia En El Pais De Las Maravillas,Carroll Lewis,300,PENGUIN BOOKS
+23,Los mitos de la historia argentina 1,Pigna,500,Planeta
+24,Harry Potter y la Orden del Fenix,Rowling,800,SALAMANDRA
+25,Los mitos de la historia argentina 2,Pigna,450,Planeta
+26,Harry Potter y el misterio del principe,Rowling,800,SALAMANDRA
+27,Los mitos de la historia argentina 3,Pigna,375,Planeta
+28,Harry Potter y las Reliquias de la Muerte,Rowling,800,SALAMANDRA
+29,Los mitos de la historia argentina 4,Pigna,250,Planeta
+30,Los mitos de la historia argentina 5,Pigna,270,Planeta

@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-#include "palabras.h"
+#include "libro.h"
 #include "LinkedList.h"
 #include "utn.h"
 #include "Parser.h"
@@ -13,11 +14,15 @@
  * \return int
  *
  */
-int controller_loadFromText(char *path, LinkedList *pListaPalabra) {
+int controller_loadFromText(LinkedList *pListaLibro) {
 	int ret = -1;
+	char path[20];
+	printf("Ingrese el nombre del archivo:\n");
+	gets(path);
+
 	FILE *pFile;
 	pFile = fopen(path, "r"); //se abre el archivo en modo lectura
-	if (parser_parsePalabra(pFile, pListaPalabra)) {
+	if (parser_parseLibro(pFile, pListaLibro)) {
 		ret = 0;
 		printf("Lista cargada exitosamente");
 	} else {
@@ -27,15 +32,26 @@ int controller_loadFromText(char *path, LinkedList *pListaPalabra) {
 	return ret;
 }
 
-int controller_PrintPalabra(LinkedList *pListaPalabra, int index) {
+int controller_PrintLibro(LinkedList *pListaLibro, int index) {
 	int ret = -1;
-	Palabra *auxPalabra;
-	char auxLetras[1024];
+	Libro *auxLibro;
+	int auxId;
+	char auxTitulo[1024];
+	char auxAutor[1024];
+	int auxPrecio;
+	char auxEditorial[1024];
+	float auxPrecioConDescuento;
 
-	if (pListaPalabra != NULL) {
-		auxPalabra = ll_get(pListaPalabra, index);
-		palabra_getLetras(auxPalabra, auxLetras);
-		printf("Letras: %s\n", auxLetras);
+	if (pListaLibro != NULL) {
+		auxLibro = ll_get(pListaLibro, index);
+		libro_getId(auxLibro, &auxId);
+		libro_getTitulo(auxLibro, auxTitulo);
+		libro_getAutor(auxLibro, auxAutor);
+		libro_getPrecio(auxLibro, &auxPrecio);
+		libro_getEditorial(auxLibro, auxEditorial);
+		libro_getPrecioConDescuento(auxLibro, &auxPrecioConDescuento);
+		printf("Id:%d\n Titulo:%s\n Autor:%s\n Precio:%d\n Editorial:%s\n Precio con descuento:%.2f\n",
+				auxId, auxTitulo, auxAutor, auxPrecio, auxEditorial, auxPrecioConDescuento);
 		ret = 0;
 	}
 	return ret;
@@ -48,14 +64,14 @@ int controller_PrintPalabra(LinkedList *pListaPalabra, int index) {
  * \return int
  *
  */
-int controller_ListPalabra(LinkedList *pListaPalabra) {
+int controller_ListLibro(LinkedList *pListaLibro) {
 	int ret = -1;
 	int i, len;
-	if (pListaPalabra != NULL) {
-		if (ll_len(pListaPalabra) > 0) {
-			len = ll_len(pListaPalabra);
+	if (pListaLibro != NULL) {
+		if (ll_len(pListaLibro) > 0) {
+			len = ll_len(pListaLibro);
 			for (i = 0; i < len; i++) {
-				controller_PrintPalabra(pListaPalabra, i);
+				controller_PrintLibro(pListaLibro, i);
 			}
 			ret = 0;
 		} else {
@@ -73,20 +89,31 @@ int controller_ListPalabra(LinkedList *pListaPalabra) {
  * \return int
  *
  */
-int controller_savePalabraAsText(FILE *pFile, LinkedList *pListaPalabra) {
+int controller_saveLibroAsText(FILE *pFile, LinkedList *pListaLibro) {
 	int ret = 0;
-	Palabra *auxPalabra;
-	char auxLetras[1024];
+	Libro *auxLibro;
+	int auxId;
+	char auxTitulo[1024];
+	char auxAutor[1024];
+	int auxPrecio;
+	char auxEditorial[1024];
+	float auxPrecioConDescuento;
 	int i, len;
 
-	if (pListaPalabra != NULL && pFile != NULL) {
-		fprintf(pFile, "letras, palabra original, num letras\n");
-		len = ll_len(pListaPalabra);
+	if (pListaLibro != NULL && pFile != NULL) {
+		fprintf(pFile, "id,titulo, autor, precio, editorial, precio con descuento\n");
+		len = ll_len(pListaLibro);
 
 		for (i = 0; i < len; i++) {
-			auxPalabra = ll_get(pListaPalabra, i);
-			palabra_getLetras(auxPalabra, auxLetras);
-			fprintf(pFile, "%s\n", auxLetras);
+			auxLibro = ll_get(pListaLibro, i);
+			libro_getId(auxLibro, &auxId);
+			libro_getTitulo(auxLibro, auxTitulo);
+			libro_getAutor(auxLibro, auxAutor);
+			libro_getPrecio(auxLibro, &auxPrecio);
+			libro_getEditorial(auxLibro, auxEditorial);
+			libro_getPrecioConDescuento(auxLibro, &auxPrecioConDescuento);
+			fprintf(pFile,"%d,%s,%s,%d,%s,%.2f\n",
+					auxId, auxTitulo, auxAutor, auxPrecio, auxEditorial, auxPrecioConDescuento);
 			ret++;
 		}
 		fclose(pFile);
@@ -94,14 +121,14 @@ int controller_savePalabraAsText(FILE *pFile, LinkedList *pListaPalabra) {
 	return ret;
 }
 
-int controller_saveAsText(char *fileName, LinkedList *pListaPalabra) {
+int controller_saveAsText(char *fileName, LinkedList *pListaLibro) {
 	FILE *pArchivo;
 	int retorno = -1;
 
-	if (fileName != NULL && pListaPalabra != NULL) {
+	if (fileName != NULL && pListaLibro != NULL) {
 		pArchivo = fopen(fileName, "w"); //abre el archivo en modo de escritura
 		if (pArchivo != NULL
-				&& controller_savePalabraAsText(pArchivo, pListaPalabra)) {
+				&& controller_saveLibroAsText(pArchivo, pListaLibro)) {
 			printf("\nGuardado exitoso en Texto");
 			retorno = 0;
 		} else {

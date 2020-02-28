@@ -3,6 +3,6 @@
 
 #include "LinkedList.h"
 
-int parser_parsePalabra(FILE *fileName, LinkedList *listaPalabra);
+int parser_parseLibro(FILE *fileName, LinkedList *listaLibro);
 
 #endif // PARSER_H_INCLUDED
